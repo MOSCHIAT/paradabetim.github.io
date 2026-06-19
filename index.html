@@ -30,7 +30,6 @@
             font-family: 'Montserrat', sans-serif;
             background: #1a0a1a;
             color: #fff;
-            /* padding-top removido */;
         }
 
         a {
@@ -227,7 +226,6 @@
             overflow: hidden;
             padding: 3rem 1rem;
             padding-top: 80px;
-            /* compensa o header fixo */;
             flex: 1;
         }
 
@@ -490,70 +488,185 @@
             min-width: 70px;
             font-variant-numeric: tabular-nums;
             letter-spacing: 0.3px;
+            flex-shrink: 0;
         }
 
+        /* ---- BLUR FORTE NO NOME DA ATRAÇÃO, ÍCONES E BADGES ---- */
         .item-horario .atracoes-text {
-            display: flex;
+            display: inline-flex;
             align-items: center;
             gap: 0.6rem;
             flex-wrap: wrap;
             font-weight: 500;
             font-size: 0.95rem;
-            background: linear-gradient(90deg,
-                    #ff6b6b, #ffb347, #ffeb3b, #4caf50, #2196f3, #9c27b0, #ff1493);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            background-size: 200% 100%;
-            animation: rainbowMove 6s linear infinite;
+            padding: 0.3rem 0.8rem;
+            border-radius: 40px;
+            filter: blur(20px);
+            -webkit-filter: blur(20px);
+            background: rgba(20, 5, 20, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            user-select: none;
+            pointer-events: none;
+            transition: filter 0.3s;
         }
 
-        @keyframes rainbowMove {
-            0% { background-position: 0% 50%; }
-            100% { background-position: 200% 50%; }
+        .item-horario:hover .atracoes-text {
+            filter: blur(4px);
         }
 
-        .item-horario .atracoes-text i {
-            -webkit-text-fill-color: initial;
-            color: #aa88aa;
-            font-size: 0.85rem;
-            width: 1.4rem;
-            text-align: center;
-            opacity: 0.6;
-            transition: opacity 0.2s;
+        .item-horario .atracoes-text i,
+        .item-horario .atracoes-text .badge-atracao {
+            color: #cc99cc;
+            -webkit-text-fill-color: #cc99cc;
         }
 
-        .item-horario:hover .atracoes-text i {
-            opacity: 1;
-        }
-
-        .item-horario .badge-atracao {
+        .item-horario .atracoes-text .badge-atracao {
             background: rgba(255, 255, 255, 0.04);
             padding: 0.1rem 0.6rem;
             border-radius: 30px;
             font-size: 0.6rem;
             font-weight: 600;
-            color: #998899;
             letter-spacing: 0.3px;
             border: 1px solid rgba(255, 255, 255, 0.04);
-            -webkit-text-fill-color: initial;
             text-transform: uppercase;
         }
 
-        /* ===== PROGRAMAÇÃO DA DIVERSIDADE ===== */
-        .diversidade {
+        /* ===== SEÇÃO TRAJETO ===== */
+        .trajeto {
             padding: 3rem 0 4rem;
             background: linear-gradient(160deg, #0f0515, #1a0a2a, #0f0515);
+            border-top: 1px solid rgba(255, 255, 255, 0.03);
             border-bottom: 1px solid rgba(255, 255, 255, 0.03);
         }
 
-        .diversidade .container {
+        .trajeto .container {
             max-width: 760px;
         }
 
-        .diversidade .section-title i {
+        .trajeto .section-title i {
             color: #ff6b9d;
             margin-right: 0.5rem;
+        }
+
+        .map-wrapper {
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 32px;
+            padding: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
+            margin-top: 0.5rem;
+        }
+
+        .map-wrapper svg {
+            display: block;
+            width: 100%;
+            height: auto;
+            max-height: 460px;
+            border-radius: 20px;
+        }
+
+        /* Estilos para os elementos dentro do foreignObject do SVG (simulando Tailwind) */
+        .map-wrapper .bg-slate-900\/90 {
+            background: rgba(15, 23, 42, 0.9);
+        }
+        .map-wrapper .backdrop-blur-md {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .map-wrapper .border-pink-500\/30 {
+            border-color: rgba(236, 72, 153, 0.3);
+        }
+        .map-wrapper .border-purple-500\/30 {
+            border-color: rgba(168, 85, 247, 0.3);
+        }
+        .map-wrapper .p-2\.5 {
+            padding: 0.625rem;
+        }
+        .map-wrapper .rounded-xl {
+            border-radius: 0.75rem;
+        }
+        .map-wrapper .shadow-lg {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .map-wrapper .transition-all-300 {
+            transition: all 0.3s ease;
+        }
+        .map-wrapper .text-\[10px\] {
+            font-size: 10px;
+        }
+        .map-wrapper .font-bold {
+            font-weight: 700;
+        }
+        .map-wrapper .tracking-wider {
+            letter-spacing: 0.05em;
+        }
+        .map-wrapper .text-pink-400 {
+            color: #f472b6;
+        }
+        .map-wrapper .text-purple-400 {
+            color: #a78bfa;
+        }
+        .map-wrapper .uppercase {
+            text-transform: uppercase;
+        }
+        .map-wrapper .flex {
+            display: flex;
+        }
+        .map-wrapper .items-center {
+            align-items: center;
+        }
+        .map-wrapper .gap-1 {
+            gap: 0.25rem;
+        }
+        .map-wrapper .w-1\.5 {
+            width: 0.375rem;
+        }
+        .map-wrapper .h-1\.5 {
+            height: 0.375rem;
+        }
+        .map-wrapper .rounded-full {
+            border-radius: 9999px;
+        }
+        .map-wrapper .text-xs {
+            font-size: 0.75rem;
+        }
+        .map-wrapper .text-white {
+            color: #fff;
+        }
+        .map-wrapper .leading-tight {
+            line-height: 1.25;
+        }
+        .map-wrapper .mt-0\.5 {
+            margin-top: 0.125rem;
+        }
+        .map-wrapper .text-\[9px\] {
+            font-size: 9px;
+        }
+        .map-wrapper .text-slate-400 {
+            color: #94a3b8;
+        }
+        .map-wrapper .bg-slate-900\/90 {
+            background: rgba(15, 23, 42, 0.9);
+        }
+        /* Animação ping para o brilho do trio */
+        .map-wrapper .animate-ping {
+            animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+        }
+        @keyframes ping {
+            75%, 100% {
+                transform: scale(1.5);
+                opacity: 0;
+            }
+        }
+        /* Hover nos pins */
+        .map-wrapper .cursor-pointer {
+            cursor: pointer;
+        }
+        .map-wrapper .hover\:scale-110:hover {
+            transform: scale(1.1);
+        }
+        .map-wrapper .transition-all {
+            transition: all 0.2s;
         }
 
         /* ===== RESPONSIVO ===== */
@@ -665,6 +778,19 @@
             .chamado-card .icone-grande {
                 font-size: 2.8rem;
             }
+
+            .item-horario .atracoes-text {
+                font-size: 0.85rem;
+                padding: 0.2rem 0.6rem;
+                filter: blur(18px);
+            }
+            .item-horario:hover .atracoes-text {
+                filter: blur(6px);
+            }
+
+            .map-wrapper {
+                padding: 0.5rem;
+            }
         }
 
         @media (max-width: 600px) {
@@ -700,6 +826,23 @@
             .btn-hero {
                 font-size: 0.95rem;
                 padding: 0.7rem 1.8rem;
+            }
+            .item-horario {
+                flex-wrap: wrap;
+                gap: 0.3rem;
+            }
+            .item-horario .hora {
+                min-width: 60px;
+                font-size: 0.8rem;
+            }
+            .item-horario .atracoes-text {
+                font-size: 0.8rem;
+                padding: 0.15rem 0.6rem;
+                gap: 0.3rem;
+                filter: blur(16px);
+            }
+            .item-horario:hover .atracoes-text {
+                filter: blur(5px);
             }
         }
 
@@ -1173,55 +1316,143 @@
         </div>
     </section>
 
-    <!-- ===== PROGRAMAÇÃO DA DIVERSIDADE ===== -->
-    <section class="diversidade" id="diversidade">
+    <!-- ===== SEÇÃO TRAJETO ===== -->
+    <section class="trajeto" id="trajeto">
         <div class="container">
-            <h2 class="section-title"><i class="fas fa-hands-helping"></i> Programação da Diversidade</h2>
-            <p class="section-subtitle">Atividades culturais, rodas de conversa e oficinas para todas as idades</p>
+            <h2 class="section-title"><i class="fas fa-route"></i> Trajeto da Parada</h2>
+            <p class="section-subtitle" style="border-bottom: none; padding-bottom: 0;">
+                Acompanhe o percurso do trio elétrico e dos blocos – concentração no Poliesportivo até a Praça do Encontro.
+            </p>
 
-            <div class="lista-horarios">
-                <div class="item-horario">
-                    <span class="hora">10:00</span>
-                    <span class="atracoes-text">
-                        <i class="fas fa-paint-brush"></i> Oficina de Arte e Expressão
-                        <span class="badge-atracao">Arte</span>
-                    </span>
-                </div>
-                <div class="item-horario">
-                    <span class="hora">11:30</span>
-                    <span class="atracoes-text">
-                        <i class="fas fa-book-open"></i> Roda de Conversa: “Famílias LGBTQIAPN+”
-                        <span class="badge-atracao">Diálogo</span>
-                    </span>
-                </div>
-                <div class="item-horario">
-                    <span class="hora">13:30</span>
-                    <span class="atracoes-text">
-                        <i class="fas fa-heart"></i> Vivência de Afetos e Cuidados
-                        <span class="badge-atracao">Bem-estar</span>
-                    </span>
-                </div>
-                <div class="item-horario">
-                    <span class="hora">15:30</span>
-                    <span class="atracoes-text">
-                        <i class="fas fa-theater-masks"></i> Teatro do Oprimido
-                        <span class="badge-atracao">Performance</span>
-                    </span>
-                </div>
-                <div class="item-horario">
-                    <span class="hora">17:30</span>
-                    <span class="atracoes-text">
-                        <i class="fas fa-users"></i> Painel: “Juventude e Protagonismo”
-                        <span class="badge-atracao">Debate</span>
-                    </span>
-                </div>
-                <div class="item-horario" style="background:rgba(255,20,147,0.05); border-left:3px solid #ff1493;">
-                    <span class="hora">19:30</span>
-                    <span class="atracoes-text">
-                        <i class="fas fa-dove"></i> Cerimônia de Encerramento – Abraço Coletivo
-                        <span class="badge-atracao" style="background:rgba(233,30,140,0.2); color:#ffb3d9;">Destaque</span>
-                    </span>
-                </div>
+            <div class="map-wrapper">
+                <svg viewBox="0 0 500 850" fill="none" xmlns="http://www.w3.org/2000/svg" id="map-svg">
+                    <defs>
+                        <!-- Gradiente Arco-Íris que segue o trajeto principal do Orgulho de forma elegante -->
+                        <linearGradient id="rainbow-route" x1="400" y1="50" x2="100" y2="800" gradientUnits="userSpaceOnUse">
+                            <stop offset="0%" stop-color="#E40303"/>    <!-- Vermelho -->
+                            <stop offset="20%" stop-color="#FF8C00"/>   <!-- Laranja -->
+                            <stop offset="40%" stop-color="#FFED00"/>   <!-- Amarelo -->
+                            <stop offset="60%" stop-color="#008026"/>   <!-- Verde -->
+                            <stop offset="80%" stop-color="#004CFF"/>   <!-- Azul -->
+                            <stop offset="100%" stop-color="#732982"/>  <!-- Roxo -->
+                        </linearGradient>
+
+                        <!-- Filtros de Brilho Neon Profissional -->
+                        <filter id="neon-glow" x="-20%" y="-20%" width="140%" height="140%">
+                            <feGaussianBlur stdDeviation="12" result="blur"/>
+                            <feMerge>
+                                <feMergeNode in="blur"/>
+                                <feMergeNode in="SourceGraphic"/>
+                            </feMerge>
+                        </filter>
+                        <filter id="neon-glow-subtle" x="-10%" y="-10%" width="120%" height="120%">
+                            <feGaussianBlur stdDeviation="5" result="blur"/>
+                            <feMerge>
+                                <feMergeNode in="blur"/>
+                                <feMergeNode in="SourceGraphic"/>
+                            </feMerge>
+                        </filter>
+
+                        <!-- Gradientes dos Pins -->
+                        <linearGradient id="pin-grad-red" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#FF5252"/>
+                            <stop offset="100%" stop-color="#C62828"/>
+                        </linearGradient>
+                        <linearGradient id="pin-grad-purple" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#E040FB"/>
+                            <stop offset="100%" stop-color="#6A1B9A"/>
+                        </linearGradient>
+                    </defs>
+
+                    <!-- TRÁFEGO DO TRAJETO -->
+                    <g id="route-group">
+                        <!-- Sombra suave -->
+                        <path d="M 275,275 L 360,75 C 367,55 395,65 390,90 L 320,290 C 285,390 235,460 180,530 C 130,595 105,650 115,705 C 125,750 155,770 180,770" stroke="#000" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" opacity="0.25"/>
+                        <!-- Glow Neon -->
+                        <path id="route-glow" d="M 275,275 L 360,75 C 367,55 395,65 390,90 L 320,290 C 285,390 235,460 180,530 C 130,595 105,650 115,705 C 125,750 155,770 180,770" stroke="url(#rainbow-route)" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" opacity="0.6" filter="url(#neon-glow)"/>
+                        <!-- Linha Principal -->
+                        <path id="main-route-line" d="M 275,275 L 360,75 C 367,55 395,65 390,90 L 320,290 C 285,390 235,460 180,530 C 130,595 105,650 115,705 C 125,750 155,770 180,770" stroke="url(#rainbow-route)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+                        <!-- Linha Pontilhada Branca -->
+                        <path d="M 275,275 L 360,75 C 367,55 395,65 390,90 L 320,290 C 285,390 235,460 180,530 C 130,595 105,650 115,705 C 125,750 155,770 180,770" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10, 14" opacity="0.8"/>
+                    </g>
+
+                    <!-- TRIO ELÉTRICO ANIMADO -->
+                    <g id="animated-trio">
+                        <path id="animation-path" d="M 275,275 L 360,75 C 367,55 395,65 390,90 L 320,290 C 285,390 235,460 180,530 C 130,595 105,650 115,705 C 125,750 155,770 180,770" fill="none"/>
+                        <g id="truck-group">
+                            <animateMotion dur="14s" repeatCount="indefinite" rotate="auto">
+                                <mpath href="#animation-path"/>
+                            </animateMotion>
+                            <!-- Sombra -->
+                            <rect x="-14" y="-7" width="28" height="14" rx="3" fill="#000" opacity="0.3"/>
+                            <!-- Corpo -->
+                            <rect x="-12" y="-6" width="24" height="12" rx="2" fill="#E40303" id="trio-body"/>
+                            <rect x="-2" y="-5" width="13" height="10" rx="1" fill="#FFED00"/>
+                            <!-- Cabine -->
+                            <rect x="8" y="-4" width="5" height="8" rx="1" fill="#1E293B"/>
+                            <!-- Alto-falantes -->
+                            <circle cx="-6" cy="-2" r="2.5" fill="#111827"/>
+                            <circle cx="-6" cy="2" r="2.5" fill="#111827"/>
+                            <circle cx="2" cy="-2" r="2.5" fill="#111827"/>
+                            <circle cx="2" cy="2" r="2.5" fill="#111827"/>
+                            <!-- Bandeira -->
+                            <path d="M -8,0 L -14,-4 L -11,-1 L -14,2 Z" fill="#732982"/>
+                            <!-- Brilho -->
+                            <circle cx="0" cy="0" r="15" stroke="#FFF" stroke-width="1.5" opacity="0.4" class="animate-ping" style="animation-duration: 2s;"/>
+                        </g>
+                    </g>
+
+                    <!-- MARCADORES (PINS) -->
+                    <!-- Pin Poliesportivo -->
+                    <g transform="translate(245, 265)" class="cursor-pointer transition-all hover:scale-110" id="pin-poliesportivo">
+                        <g filter="url(#neon-glow-subtle)">
+                            <path d="M 0,0 C -12,-12 -16,-24 -16,-34 C -16,-45 -7,-52 4,-52 C 15,-52 24,-45 24,-34 C 24,-24 20,-12 8,0 L 4,4 Z" fill="url(#pin-grad-red)"/>
+                            <circle cx="4" cy="-34" r="10" fill="#FFF"/>
+                            <path d="M 1,-37 L 7,-37 L 9,-34 L 9,-32 L 7,-29 L 1,-29 Z" fill="#E40303"/>
+                            <circle cx="2" cy="-31" r="1.5" fill="#E40303"/>
+                        </g>
+                        <ellipse cx="4" cy="2" rx="8" ry="3" fill="#000" opacity="0.3"/>
+                    </g>
+
+                    <!-- Pin Praça do Encontro -->
+                    <g transform="translate(190, 755)" class="cursor-pointer transition-all hover:scale-110" id="pin-encontro">
+                        <g filter="url(#neon-glow-subtle)">
+                            <path d="M 0,-5 C -12,-17 -16,-29 -16,-39 C -16,-50 -7,-57 4,-57 C 15,-57 24,-50 24,-39 C 24,-29 20,-17 8,-5 L 4,-1 Z" fill="url(#pin-grad-purple)"/>
+                            <circle cx="4" cy="-39" r="10" fill="#FFF"/>
+                            <path d="M 4,-45 L 6,-41 L 10,-40 L 7,-37 L 8,-33 L 4,-35 L 0,-33 L 1,-37 L -2,-40 L 2,-41 Z" fill="#732982"/>
+                        </g>
+                        <ellipse cx="4" cy="-1" rx="8" ry="3" fill="#000" opacity="0.3"/>
+                    </g>
+
+                    <!-- LABELS (CAIXAS DE TEXTO) -->
+                    <foreignObject x="20" y="240" width="190" height="75" id="label-poliesportivo-container">
+                        <div xmlns="http://www.w3.org/1999/xhtml" class="bg-slate-900/90 backdrop-blur-md border border-pink-500/30 p-2.5 rounded-xl shadow-lg transition-all-300">
+                            <p class="text-[10px] font-bold tracking-wider text-pink-400 uppercase flex items-center gap-1">
+                                <span class="w-1.5 h-1.5 rounded-full bg-pink-500"></span> Concentração
+                            </p>
+                            <p class="text-xs font-bold text-white leading-tight mt-0.5">Poliesportivo</p>
+                            <p class="text-[9px] text-slate-400 mt-0.5">Início do desfile, trios e ativações</p>
+                        </div>
+                    </foreignObject>
+
+                    <foreignObject x="210" y="730" width="220" height="75" id="label-encontro-container">
+                        <div xmlns="http://www.w3.org/1999/xhtml" class="bg-slate-900/90 backdrop-blur-md border border-purple-500/30 p-2.5 rounded-xl shadow-lg transition-all-300">
+                            <p class="text-[10px] font-bold tracking-wider text-purple-400 uppercase flex items-center gap-1">
+                                <span class="w-1.5 h-1.5 rounded-full bg-purple-400"></span> Dispersão &amp; Show
+                            </p>
+                            <p class="text-xs font-bold text-white leading-tight mt-0.5">Praça do Encontro</p>
+                            <p class="text-[9px] text-slate-400 mt-0.5">Palco principal e encerramento</p>
+                        </div>
+                    </foreignObject>
+
+                    <!-- SETAS DE FLUXO -->
+                    <g transform="translate(355, 200) rotate(-65)" opacity="0.7">
+                        <path d="M 0,0 L 10,-5 L 10,-2 L 25,-2 L 25,2 L 10,2 L 10,5 Z" fill="#FFF"/>
+                    </g>
+                    <g transform="translate(145, 620) rotate(120)" opacity="0.7">
+                        <path d="M 0,0 L 10,-5 L 10,-2 L 25,-2 L 25,2 L 10,2 L 10,5 Z" fill="#FFF"/>
+                    </g>
+                </svg>
             </div>
         </div>
     </section>
