@@ -392,7 +392,7 @@
 
         .news-slide {
             min-width: 100%;
-            padding: 1.2rem 1.5rem;
+            padding: 1rem 1.5rem;
             display: flex;
             align-items: center;
             gap: 1rem;
@@ -427,16 +427,17 @@
         }
 
         .news-slide .news-content h3 {
-            font-size: clamp(1rem, 2vw, 1.3rem);
+            font-size: clamp(0.95rem, 1.8vw, 1.2rem);
             font-weight: 800;
             line-height: 1.2;
-            margin-bottom: 0.2rem;
+            margin-bottom: 0.1rem;
         }
 
         .news-slide .news-content p {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             opacity: 0.85;
             line-height: 1.3;
+            margin-bottom: 0;
         }
 
         .news-nav {
@@ -477,7 +478,7 @@
             display: flex;
             justify-content: center;
             gap: 0.5rem;
-            margin-top: 0.8rem;
+            margin-top: 0.6rem;
         }
 
         .news-dots span {
@@ -498,7 +499,7 @@
         .comissao-artistas-section,
         .atracoes-blog-section,
         .gallery-section,
-        .trajeto {
+        .local-partida {
             background: rgba(255, 255, 255, 0.7);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
@@ -514,12 +515,12 @@
         .comissao-artistas-section .container,
         .atracoes-blog-section .container,
         .gallery-section .container,
-        .trajeto .container {
+        .local-partida .container {
             width: 100%;
             padding: 0 1.5rem;
         }
 
-        /* ===== COMISSÃO + ARTISTAS (LADO A LADO) ===== */
+        /* ===== COMISSÃO + ARTISTAS (LADO A LADO - MESMA ALTURA) ===== */
         .comissao-artistas-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -534,7 +535,6 @@
             justify-content: center;
         }
 
-        /* Card da Comissão */
         .chamado-card {
             background: rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(16px);
@@ -551,6 +551,9 @@
             transition: transform 0.3s;
             width: 100%;
             max-width: 500px;
+            height: 100%;
+            min-height: 380px;
+            justify-content: center;
         }
 
         .chamado-card:hover {
@@ -609,7 +612,6 @@
             box-shadow: 0 10px 36px rgba(233, 30, 140, 0.3);
         }
 
-        /* Card dos Artistas (fundo neutro + chamativo) */
         .artistas-card {
             background: rgba(255, 255, 255, 0.92);
             backdrop-filter: blur(8px);
@@ -625,6 +627,9 @@
             transition: transform 0.3s, box-shadow 0.3s;
             width: 100%;
             max-width: 500px;
+            height: 100%;
+            min-height: 380px;
+            justify-content: center;
         }
 
         .artistas-card:hover {
@@ -696,7 +701,7 @@
             box-shadow: 0 10px 36px rgba(233, 30, 140, 0.4);
         }
 
-        /* ===== ATRAÇÕES + BLOG (LADO A LADO) ===== */
+        /* ===== ATRAÇÕES + BLOG ===== */
         .atracoes-blog-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -774,20 +779,15 @@
             color: #1a0a1a;
         }
 
-        .item-horario .atracoes-text i,
-        .item-horario .atracoes-text .badge-atracao {
-            color: #6a4a6a;
+        .item-horario .atracoes-text .artista-nome {
+            filter: blur(4px);
+            transition: filter 0.3s;
+            user-select: none;
+            display: inline-block;
         }
 
-        .item-horario .atracoes-text .badge-atracao {
-            background: rgba(0, 0, 0, 0.03);
-            padding: 0.05rem 0.5rem;
-            border-radius: 30px;
-            font-size: 0.55rem;
-            font-weight: 600;
-            letter-spacing: 0.3px;
-            border: 1px solid rgba(0, 0, 0, 0.04);
-            text-transform: uppercase;
+        .item-horario:hover .atracoes-text .artista-nome {
+            filter: blur(2px);
         }
 
         .blog-list {
@@ -921,7 +921,7 @@
             height: 420px;
         }
 
-        /* ===== TRAJETO (GOOGLE MAPS) ===== */
+        /* ===== LOCAL DE PARTIDA ===== */
         .map-wrapper {
             background: rgba(255, 255, 255, 0.5);
             border-radius: 32px;
@@ -941,7 +941,7 @@
             transition: height 0.3s ease;
         }
 
-        /* ===== SECTION TITLE (global) ===== */
+        /* ===== SECTION TITLE ===== */
         .section-title {
             font-size: clamp(1.6rem, 3.5vw, 2.4rem);
             font-weight: 800;
@@ -1063,6 +1063,8 @@
             .artistas-card {
                 max-width: 100%;
                 padding: 1.2rem 1.5rem;
+                min-height: auto;
+                height: auto;
             }
 
             .atracoes-blog-grid {
@@ -1097,7 +1099,7 @@
             .comissao-artistas-section,
             .atracoes-blog-section,
             .gallery-section,
-            .trajeto {
+            .local-partida {
                 padding: 1.5rem 0;
                 margin: 1rem auto;
                 border-radius: 28px;
@@ -1137,6 +1139,7 @@
             .chamado-card,
             .artistas-card {
                 padding: 1rem 1rem;
+                min-height: auto;
             }
             .chamado-card .info .titulo,
             .artistas-card .titulo-card {
@@ -1238,10 +1241,10 @@
             }
 
             .news-slide .news-content h3 {
-                font-size: 0.95rem;
+                font-size: 0.9rem;
             }
             .news-slide .news-content p {
-                font-size: 0.75rem;
+                font-size: 0.7rem;
             }
             .news-nav button {
                 width: 26px;
@@ -1311,7 +1314,7 @@
             margin: 0 0.3rem;
         }
 
-        /* ===== MODAL DE LOGIN ===== */
+        /* ===== MODAL LOGIN ===== */
         .modal-overlay {
             display: none;
             position: fixed;
@@ -1559,7 +1562,7 @@
         </div>
     </header>
 
-    <!-- ===== HERO COM CONTAGEM + CARROSSEL ===== -->
+    <!-- ===== HERO ===== -->
     <section class="hero" id="hero">
         <div class="hero-content">
             <h1>22ª Parada do Orgulho <span class="rainbow-text">LGBTQIAPN+</span></h1>
@@ -1599,35 +1602,27 @@
             <div class="news-carousel-container" id="newsCarousel">
                 <div class="news-track" id="newsTrack">
                     <div class="news-slide">
-                        <div class="news-icon"><i class="fas fa-exclamation-triangle"></i></div>
+                        <div class="news-icon"><i class="fas fa-calendar-check"></i></div>
                         <div class="news-content">
                             <span class="news-tag">Destaque</span>
-                            <h3></h3>
-                            <p></p>
+                            <h3>Parada de BH é lei</h3>
+                            <p>Evento entra no calendário oficial. 27ª edição em 19 de julho.</p>
                         </div>
                     </div>
                     <div class="news-slide">
-                        <div class="news-icon"><i class="fas fa-hand-holding-heart"></i></div>
+                        <div class="news-icon"><i class="fas fa-chart-line"></i></div>
                         <div class="news-content">
-                            <span class="news-tag">Solidariedade</span>
-                            <h3>Campanha de financiamento coletivo bate recorde</h3>
-                            <p>Em menos de 48 horas, a vaquinha online arrecadou mais de R$ 50 mil para garantir a estrutura da parada.</p>
-                        </div>
-                    </div>
-                    <div class="news-slide">
-                        <div class="news-icon"><i class="fas fa-music"></i></div>
-                        <div class="news-content">
-                            <span class="news-tag">Programação</span>
-                            <h3>Shows e atrações confirmadas para a Parada 2026</h3>
-                            <p>Artistas locais e nacionais se apresentam no palco principal. Confira a lista completa de atrações.</p>
+                            <span class="news-tag">Transparência</span>
+                            <h3>Dados sobre LGBTfobia</h3>
+                            <p>Projeto na ALMG prevê relatórios semestrais sobre violência.</p>
                         </div>
                     </div>
                     <div class="news-slide">
                         <div class="news-icon"><i class="fas fa-users"></i></div>
                         <div class="news-content">
-                            <span class="news-tag">Participação</span>
-                            <h3>Inscrições para voluntários e artistas abertas</h3>
-                            <p>Até 17 de julho, interessados podem se inscrever para fazer parte da maior festa da diversidade.</p>
+                            <span class="news-tag">Encontro</span>
+                            <h3>2º Encontro Mineiro</h3>
+                            <p>Lideranças debatem interiorização das pautas no dia 17/07 em BH.</p>
                         </div>
                     </div>
                 </div>
@@ -1656,7 +1651,6 @@
                                 <i class="fas fa-map-pin" style="margin-left:0.8rem;"></i> Prefeitura de Betim
                             </div>
                         </div>
-                        <!-- LINK ATUALIZADO: WhatsApp -->
                         <a href="https://chat.whatsapp.com/JbXutcdLGJN6cXaHRhvTL3" target="_blank" class="btn-comissao-section">
                             <i class="fab fa-whatsapp"></i> Quero participar
                         </a>
@@ -1692,19 +1686,19 @@
                     <p class="section-subtitle">26 de julho · Poli esportivo Betim</p>
                     <div class="lista-horarios">
                         <div class="item-horario"><span class="hora">12:00</span><span class="atracoes-text"><i class="fas fa-flag-checkered"></i> Concentração <span class="badge-atracao">Início</span></span></div>
-                        <div class="item-horario"><span class="hora">13:00</span><span class="atracoes-text"><i class="fas fa-microphone-alt"></i> DJ Luna <span class="badge-atracao">Eletrônica</span></span></div>
-                        <div class="item-horario"><span class="hora">14:00</span><span class="atracoes-text"><i class="fas fa-guitar"></i> Banda Rainbow <span class="badge-atracao">Rock</span></span></div>
-                        <div class="item-horario"><span class="hora">15:00</span><span class="atracoes-text"><i class="fas fa-mask"></i> Drag Queens <span class="badge-atracao">Arte</span></span></div>
-                        <div class="item-horario"><span class="hora">16:00</span><span class="atracoes-text"><i class="fas fa-drum"></i> Bateria Diversidade <span class="badge-atracao">Samba</span></span></div>
-                        <div class="item-horario"><span class="hora">17:00</span><span class="atracoes-text"><i class="fas fa-users"></i> Bloco Afro <span class="badge-atracao">Música</span></span></div>
-                        <div class="item-horario"><span class="hora">18:00</span><span class="atracoes-text"><i class="fas fa-headphones"></i> DJ Madam P. <span class="badge-atracao">Pop</span></span></div>
+                        <div class="item-horario"><span class="hora">13:00</span><span class="atracoes-text"><i class="fas fa-microphone-alt"></i> <span class="artista-nome">DJ Luna</span> <span class="badge-atracao">Eletrônica</span></span></div>
+                        <div class="item-horario"><span class="hora">14:00</span><span class="atracoes-text"><i class="fas fa-guitar"></i> <span class="artista-nome">Banda Rainbow</span> <span class="badge-atracao">Rock</span></span></div>
+                        <div class="item-horario"><span class="hora">15:00</span><span class="atracoes-text"><i class="fas fa-mask"></i> <span class="artista-nome">Drag Queens</span> <span class="badge-atracao">Arte</span></span></div>
+                        <div class="item-horario"><span class="hora">16:00</span><span class="atracoes-text"><i class="fas fa-drum"></i> <span class="artista-nome">Bateria Diversidade</span> <span class="badge-atracao">Samba</span></span></div>
+                        <div class="item-horario"><span class="hora">17:00</span><span class="atracoes-text"><i class="fas fa-users"></i> <span class="artista-nome">Bloco Afro</span> <span class="badge-atracao">Música</span></span></div>
+                        <div class="item-horario"><span class="hora">18:00</span><span class="atracoes-text"><i class="fas fa-headphones"></i> <span class="artista-nome">DJ Madam P.</span> <span class="badge-atracao">Pop</span></span></div>
                         <div class="item-horario" style="background:rgba(233,30,140,0.04); border-left:3px solid #e91e8c;">
                             <span class="hora">19:00</span>
-                            <span class="atracoes-text"><i class="fas fa-music"></i> Banda Praça Encontro <span class="badge-atracao" style="background:rgba(233,30,140,0.08); color:#e91e8c;">Destaque</span></span>
+                            <span class="atracoes-text"><i class="fas fa-music"></i> <span class="artista-nome">Banda Praça Encontro</span> <span class="badge-atracao" style="background:rgba(233,30,140,0.08); color:#e91e8c;">Destaque</span></span>
                         </div>
-                        <div class="item-horario"><span class="hora">20:00</span><span class="atracoes-text"><i class="fas fa-fire"></i> Fogo &amp; Luzes <span class="badge-atracao">Efeitos</span></span></div>
-                        <div class="item-horario"><span class="hora">21:00</span><span class="atracoes-text"><i class="fas fa-music"></i> Orquestra Pride <span class="badge-atracao">Clássica</span></span></div>
-                        <div class="item-horario"><span class="hora">22:00</span><span class="atracoes-text"><i class="fas fa-glass-cheers"></i> After DJ Fênix <span class="badge-atracao">Festa</span></span></div>
+                        <div class="item-horario"><span class="hora">20:00</span><span class="atracoes-text"><i class="fas fa-fire"></i> <span class="artista-nome">Fogo &amp; Luzes</span> <span class="badge-atracao">Efeitos</span></span></div>
+                        <div class="item-horario"><span class="hora">21:00</span><span class="atracoes-text"><i class="fas fa-music"></i> <span class="artista-nome">Orquestra Pride</span> <span class="badge-atracao">Clássica</span></span></div>
+                        <div class="item-horario"><span class="hora">22:00</span><span class="atracoes-text"><i class="fas fa-glass-cheers"></i> <span class="artista-nome">After DJ Fênix</span> <span class="badge-atracao">Festa</span></span></div>
                     </div>
                 </div>
 
@@ -1717,7 +1711,6 @@
                             <h3>Projeto que criminaliza LGBTfobia avança</h3>
                             <p class="resumo">Projeto aprovado na Câmara segue para o Senado. Ativistas comemoram.</p>
                             <div class="meta"><i class="fas fa-calendar-alt"></i> 24/06/2026 <i class="fas fa-user"></i> Redação</div>
-                            <!-- LINK ATUALIZADO: Blog -->
                             <a href="https://moschiat.github.io/paradabetim/blog" class="btn-ler">Ler mais</a>
                         </article>
                         <article class="blog-item">
@@ -1761,11 +1754,11 @@
         </div>
     </section>
 
-    <!-- ===== TRAJETO ===== -->
-    <section class="trajeto" id="trajeto">
+    <!-- ===== LOCAL DE PARTIDA ===== -->
+    <section class="local-partida" id="local-partida">
         <div class="container">
-            <h2 class="section-title"><i class="fas fa-map-marked-alt"></i> Trajeto da Parada</h2>
-            <p class="section-subtitle" style="border-bottom: none; padding-bottom: 0;">Concentração no Poliesportivo até a Praça do Encontro.</p>
+            <h2 class="section-title"><i class="fas fa-flag-checkered"></i> Local de Partida</h2>
+            <p class="section-subtitle" style="border-bottom: none; padding-bottom: 0;">Concentração no Poliesportivo de Betim.</p>
             <div class="map-wrapper">
                 <iframe src="https://www.google.com/maps?q=R.+Redelvim+Andrade,+300+-+Horto,+Betim+-+MG,+32604-142&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
@@ -1857,7 +1850,7 @@
             setInterval(atualizarContador, 1000);
         })();
 
-        // ===== CARROSSEL DE NOTÍCIAS =====
+        // ===== CARROSSEL COM AUTOPLAY 7s =====
         (function() {
             const track = document.getElementById('newsTrack');
             const slides = track.querySelectorAll('.news-slide');
@@ -1866,6 +1859,7 @@
             let isDragging = false;
             let startX = 0;
             let prevTranslate = 0;
+            let autoPlayInterval = null;
 
             const dotsContainer = document.getElementById('newsDots');
             for (let i = 0; i < totalSlides; i++) {
@@ -1892,8 +1886,32 @@
                 updateDots();
             }
 
-            document.getElementById('newsNext').addEventListener('click', () => goTo(currentIndex + 1));
-            document.getElementById('newsPrev').addEventListener('click', () => goTo(currentIndex - 1));
+            function nextSlide() {
+                goTo(currentIndex + 1);
+            }
+
+            function startAutoPlay() {
+                if (autoPlayInterval) clearInterval(autoPlayInterval);
+                autoPlayInterval = setInterval(nextSlide, 7000);
+            }
+
+            function stopAutoPlay() {
+                if (autoPlayInterval) {
+                    clearInterval(autoPlayInterval);
+                    autoPlayInterval = null;
+                }
+            }
+
+            document.getElementById('newsNext').addEventListener('click', () => {
+                stopAutoPlay();
+                goTo(currentIndex + 1);
+                startAutoPlay();
+            });
+            document.getElementById('newsPrev').addEventListener('click', () => {
+                stopAutoPlay();
+                goTo(currentIndex - 1);
+                startAutoPlay();
+            });
 
             const container = document.getElementById('newsCarousel');
 
@@ -1902,6 +1920,7 @@
             }
 
             function onDragStart(e) {
+                stopAutoPlay();
                 isDragging = true;
                 startX = getPositionX(e);
                 track.classList.add('dragging');
@@ -1931,6 +1950,7 @@
                 if (newIndex < 0) newIndex = 0;
                 if (newIndex >= totalSlides) newIndex = totalSlides - 1;
                 goTo(newIndex);
+                startAutoPlay();
             }
 
             container.addEventListener('touchstart', onDragStart);
@@ -1941,12 +1961,17 @@
             window.addEventListener('mouseup', onDragEnd);
             container.addEventListener('dragstart', (e) => e.preventDefault());
 
+            container.addEventListener('mouseenter', stopAutoPlay);
+            container.addEventListener('mouseleave', startAutoPlay);
+
             let resizeTimeout;
             window.addEventListener('resize', () => {
                 clearTimeout(resizeTimeout);
                 resizeTimeout = setTimeout(() => goTo(currentIndex), 200);
             });
+
             goTo(0);
+            startAutoPlay();
         })();
 
         // ===== MENU MOBILE =====
@@ -2099,6 +2124,5 @@
             });
         })();
     </script>
-
 </body>
 </html>
