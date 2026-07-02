@@ -1,0 +1,32 @@
+[
+    {
+        "icone": "fa-film",
+        "tag": "Cultura",
+        "titulo": "Curta brasileiro sobre trisal gay idoso vence prêmio nos EUA",
+        "resumo": "'Morfeu & Caronte', filme realizado com recursos da Lei Paulo Gustavo, venceu por unanimidade o prêmio de Melhor Curta de Ficção no Festival Frameline, em São Francisco.[reference:3]"
+    },
+    {
+        "icone": "fa-exclamation-triangle",
+        "tag": "Alerta",
+        "titulo": "Denúncias de violações contra LGBT+ igualam total de 2025 em 6 meses",
+        "resumo": "Em Presidente Prudente (SP), o número de denúncias de violações contra a população LGBTQIAPN+ já igualou, em apenas seis meses de 2026, todo o total registrado em 2025.[reference:4]"
+    },
+    {
+        "icone": "fa-hand-holding-heart",
+        "tag": "Serviço Público",
+        "titulo": "BH realiza mutirão com serviços gratuitos para população LGBTQIA+",
+        "resumo": "A Prefeitura de Belo Horizonte ofereceu atendimento jurídico, apoio para retificação de nome e gênero, além de serviços de saúde e vagas de emprego.[reference:5]"
+    },
+    {
+        "icone": "fa-flag",
+        "tag": "Evento",
+        "titulo": "30ª Parada LGBT+ em SP reúne multidão com tom político e famílias",
+        "resumo": "Com o tema 'A rua convoca, a urna confirma', a Parada de São Paulo celebrou 30 anos de luta, com forte presença de famílias e artistas como Pabllo Vittar e Gloria Groove.[reference:6]"
+    },
+    {
+        "icone": "fa-balance-scale",
+        "tag": "Política",
+        "titulo": "Parada LGBT+ de SP faz críticas ao bolsonarismo e pede renovação no Congresso",
+        "resumo": "O evento também serviu como palco para críticas ao bolsonarismo e pedidos de renovação no Legislativo, reforçando a importância do voto consciente.[reference:7]"
+    }
+]
