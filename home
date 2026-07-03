@@ -1,0 +1,1617 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>22ª Parada do Orgulho LGBTQIAPN+</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800;900&display=swap" rel="stylesheet" />
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+    <style>
+        /* ===== RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(145deg, #f8f4f8, #ede8ed);
+            color: #1a0a1a;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            width: min(1200px, 94%);
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* ===== HEADER - BRANCO/TRANSPARENTE ===== */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 0.6rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-weight: 900;
+            font-size: 1.3rem;
+            color: #1a0a1a;
+            letter-spacing: -0.5px;
+        }
+
+        .logo i {
+            font-size: 1.8rem;
+            color: #e91e8c;
+            filter: drop-shadow(0 0 8px rgba(233, 30, 140, 0.2));
+        }
+
+        .logo span {
+            background: rgba(233, 30, 140, 0.1);
+            padding: 0.1rem 0.6rem;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            color: #e91e8c;
+            border: 1px solid rgba(233, 30, 140, 0.15);
+        }
+
+        /* ---- Navegação ---- */
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: 0.2rem;
+            flex-wrap: wrap;
+        }
+
+        .nav a {
+            color: #3a2a3a;
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.25s, transform 0.2s, color 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .nav a:hover,
+        .nav a:focus {
+            background: rgba(233, 30, 140, 0.08);
+            color: #e91e8c;
+            transform: translateY(-2px);
+        }
+
+        .nav a i {
+            font-size: 0.9rem;
+            color: #e91e8c;
+        }
+
+        .nav a.active {
+            background: rgba(233, 30, 140, 0.10);
+            color: #e91e8c;
+        }
+
+        /* ---- Dropdown ---- */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown>a::after {
+            content: '\f078';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            font-size: 0.6rem;
+            margin-left: 0.4rem;
+            opacity: 0.8;
+            transition: transform 0.3s;
+        }
+
+        .dropdown:hover>a::after {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: calc(100% + 8px);
+            left: 50%;
+            transform: translateX(-50%) scale(0.92) translateY(-6px);
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-radius: 20px;
+            padding: 0.6rem 0;
+            min-width: 220px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+            z-index: 100;
+        }
+
+        .dropdown:hover .dropdown-menu,
+        .dropdown:focus-within .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+            transform: translateX(-50%) scale(1) translateY(0);
+        }
+
+        .dropdown-menu a {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.7rem 1.6rem;
+            color: #3a2a3a;
+            font-weight: 500;
+            font-size: 0.9rem;
+            border-radius: 0;
+            background: transparent;
+            transform: none;
+            white-space: nowrap;
+            border-left: 3px solid transparent;
+            transition: background 0.2s, border-color 0.2s, color 0.2s;
+        }
+
+        .dropdown-menu a:hover {
+            background: rgba(233, 30, 140, 0.06);
+            border-left-color: #e91e8c;
+            color: #e91e8c;
+            transform: none;
+        }
+
+        .dropdown-menu a i {
+            width: 1.2rem;
+            color: #e91e8c;
+        }
+
+        /* ---- Menu Mobile Toggle ---- */
+        .menu-toggle {
+            display: none;
+            background: rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            color: #1a0a1a;
+            font-size: 1.8rem;
+            padding: 0.2rem 0.8rem;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .menu-toggle:hover {
+            background: rgba(233, 30, 140, 0.08);
+        }
+
+        /* ===== HERO COM CONTAGEM ===== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, #ff1493, #ff69b4, #ff2f92);
+            color: #fff;
+            overflow: hidden;
+            padding: 3rem 1rem;
+            padding-top: 80px;
+            flex: 1;
+            margin: 0;
+            border-radius: 0;
+            box-shadow: none;
+            position: relative;
+        }
+
+        .hero-content {
+            width: min(1200px, 95%);
+            padding: 2rem;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2.5rem, 8vw, 6rem);
+            font-weight: 900;
+            line-height: 1.05;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content h1 .rainbow-text {
+            background: linear-gradient(90deg,
+                    #ff0000, #ff8800, #ffff00, #00cc44,
+                    #0088ff, #6633cc, #ff00aa, #ff0000);
+            background-size: 300% 100%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: rainbowMoveTitle 4s linear infinite;
+            display: inline-block;
+        }
+
+        @keyframes rainbowMoveTitle {
+            0% {
+                background-position: 0% 50%;
+            }
+            100% {
+                background-position: 300% 50%;
+            }
+        }
+
+        .hero-content .data {
+            font-size: clamp(1.2rem, 3vw, 2rem);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            opacity: 0.95;
+        }
+
+        .contador {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .box {
+            min-width: 120px;
+            padding: 1.2rem;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s;
+        }
+
+        .box:hover {
+            transform: translateY(-4px);
+        }
+
+        .numero {
+            display: block;
+            font-size: clamp(2rem, 5vw, 4rem);
+            font-weight: 900;
+        }
+
+        .label {
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: .9rem;
+            opacity: 0.85;
+        }
+
+        .frase-hero {
+            margin-top: 0.5rem;
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            opacity: .95;
+            font-weight: 600;
+        }
+
+        .frase-hero i {
+            margin: 0 0.3rem;
+        }
+
+        /* ===== SEÇÕES BRANCAS/TRANSPARENTES ===== */
+        .comissao-artistas-section,
+        .atracoes-section,
+        .local-partida {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 40px;
+            margin: 2rem auto;
+            padding: 2.5rem 0;
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.04);
+            max-width: 1240px;
+            width: 96%;
+        }
+
+        .comissao-artistas-section .container,
+        .atracoes-section .container,
+        .local-partida .container {
+            width: 100%;
+            padding: 0 1.5rem;
+        }
+
+        /* ===== COMISSÃO + ARTISTAS (LADO A LADO - MESMA ALTURA) ===== */
+        .comissao-artistas-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: stretch;
+        }
+
+        .comissao-col,
+        .artistas-col {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .chamado-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-radius: 32px;
+            padding: 1.5rem 2rem;
+            border: 1px solid rgba(233, 30, 140, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 0.8rem;
+            transition: transform 0.3s;
+            width: 100%;
+            max-width: 500px;
+            height: 100%;
+            min-height: 380px;
+            justify-content: center;
+        }
+
+        .chamado-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(233, 30, 140, 0.2);
+        }
+
+        .chamado-card .icone-grande {
+            font-size: 2.8rem;
+            color: #e91e8c;
+            filter: drop-shadow(0 0 20px rgba(233, 30, 140, 0.1));
+        }
+
+        .chamado-card .info .titulo {
+            font-size: 1.3rem;
+            font-weight: 900;
+            color: #1a0a1a;
+        }
+
+        .chamado-card .info .subtitulo {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #4a3a4a;
+        }
+
+        .chamado-card .info .detalhes {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #6a5a6a;
+        }
+
+        .chamado-card .info .detalhes i {
+            color: #e91e8c;
+            margin: 0 0.3rem;
+        }
+
+        .chamado-card .btn-comissao-section {
+            background: linear-gradient(135deg, #e91e8c, #ff1493);
+            padding: 0.6rem 2rem;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 6px 24px rgba(233, 30, 140, 0.2);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .chamado-card .btn-comissao-section:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 10px 36px rgba(233, 30, 140, 0.3);
+        }
+
+        .artistas-card {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-radius: 32px;
+            padding: 2rem 1.8rem;
+            border: 2px solid #ff1493;
+            box-shadow: 0 8px 40px rgba(255, 20, 147, 0.15);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            width: 100%;
+            max-width: 500px;
+            height: 100%;
+            min-height: 380px;
+            justify-content: center;
+        }
+
+        .artistas-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 60px rgba(255, 20, 147, 0.25);
+        }
+
+        .artistas-card .icone-artistas {
+            margin-bottom: 0.8rem;
+        }
+
+        .artistas-card .titulo-card {
+            font-size: 1.3rem;
+            font-weight: 900;
+            color: #1a0a1a;
+            margin-bottom: 0.4rem;
+        }
+
+        .artistas-card .descricao {
+            color: #4a3a4a;
+            font-size: 0.95rem;
+            line-height: 1.4;
+            margin-bottom: 1rem;
+        }
+
+        .artistas-card .deadline-box {
+            border-radius: 16px;
+            padding: 0.8rem 1rem;
+            margin: 0 0 1.2rem 0;
+            width: 100%;
+            background: linear-gradient(135deg, rgba(255, 20, 147, 0.08), rgba(255, 107, 157, 0.08));
+            border-left: 4px solid #ff1493;
+        }
+
+        .artistas-card .deadline-box i {
+            color: #ff1493;
+            margin-right: 0.5rem;
+        }
+
+        .artistas-card .deadline-box strong {
+            color: #1a0a1a;
+        }
+
+        .artistas-card .deadline-box span {
+            color: #ff1493;
+            font-weight: 800;
+        }
+
+        .artistas-card .btn-artistas {
+            background: linear-gradient(135deg, #ff1493, #e91e8c);
+            padding: 0.7rem 2rem;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 1rem;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 6px 24px rgba(233, 30, 140, 0.25);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            text-decoration: none;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .artistas-card .btn-artistas:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 10px 36px rgba(233, 30, 140, 0.4);
+        }
+
+        /* ===== ATRAÇÕES (APENAS) - CENTRALIZADO ===== */
+        .atracoes-section .section-title {
+            text-align: center;
+        }
+
+        .atracoes-section .section-subtitle {
+            text-align: center;
+        }
+
+        .atracoes-col-full {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-radius: 32px;
+            padding: 1.8rem 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+            max-width: 820px;
+            margin: 0 auto;
+        }
+
+        .atracoes-col-full .section-title {
+            font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+            margin-bottom: 0.2rem;
+            text-align: center;
+        }
+
+        .atracoes-col-full .section-subtitle {
+            text-align: center;
+            font-size: 0.85rem;
+            margin-bottom: 1.2rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+            padding-bottom: 0.8rem;
+        }
+
+        .lista-horarios {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+            align-items: center;
+        }
+
+        .item-horario {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            padding: 0.4rem 1rem;
+            border-radius: 40px;
+            transition: background 0.2s;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.02);
+            width: 100%;
+            max-width: 620px;
+            flex-wrap: wrap;
+        }
+
+        .item-horario:hover {
+            background: rgba(233, 30, 140, 0.04);
+        }
+
+        .item-horario .hora {
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: #6a5a6a;
+            min-width: 54px;
+            font-variant-numeric: tabular-nums;
+            letter-spacing: 0.3px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .item-horario .atracoes-text {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            flex-wrap: wrap;
+            font-weight: 500;
+            font-size: 0.88rem;
+            padding: 0.1rem 0.6rem;
+            border-radius: 30px;
+            background: rgba(0, 0, 0, 0.01);
+            border: 1px solid rgba(0, 0, 0, 0.02);
+            color: #1a0a1a;
+            justify-content: center;
+        }
+
+        .item-horario .atracoes-text .artista-nome {
+            filter: blur(4px);
+            transition: filter 0.3s;
+            user-select: none;
+            display: inline-block;
+        }
+
+        .item-horario:hover .atracoes-text .artista-nome {
+            filter: blur(2px);
+        }
+
+        .badge-atracao {
+            font-size: 0.55rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            padding: 0.05rem 0.6rem;
+            border-radius: 30px;
+            background: rgba(0, 0, 0, 0.03);
+            color: #6a5a6a;
+            border: 1px solid rgba(0, 0, 0, 0.03);
+            white-space: nowrap;
+        }
+
+        .item-horario.destaque {
+            background: rgba(233, 30, 140, 0.05);
+            border-left: 3px solid #e91e8c;
+            border-radius: 40px;
+        }
+
+        .item-horario.destaque .badge-atracao {
+            background: rgba(233, 30, 140, 0.08);
+            color: #e91e8c;
+        }
+
+        /* ===== LOCAL DE PARTIDA ===== */
+        .map-wrapper {
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 32px;
+            padding: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
+            margin-top: 0.5rem;
+            overflow: hidden;
+        }
+
+        .map-wrapper iframe {
+            display: block;
+            width: 100%;
+            height: 400px;
+            border: 0;
+            border-radius: 20px;
+            transition: height 0.3s ease;
+        }
+
+        /* ===== SECTION TITLE ===== */
+        .section-title {
+            font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 0.3rem;
+            color: #1a0a1a;
+            letter-spacing: -0.5px;
+        }
+
+        .section-title i {
+            color: #e91e8c;
+            margin-right: 0.4rem;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #5a4a5a;
+            font-size: 0.95rem;
+            margin-bottom: 2.2rem;
+            font-weight: 400;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+            padding-bottom: 1.2rem;
+        }
+
+        /* ===== RESPONSIVO ===== */
+        @media (max-width: 820px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background: rgba(255, 255, 255, 0.96);
+                backdrop-filter: blur(16px);
+                padding: 1rem 0;
+                border-radius: 20px;
+                margin-top: 0.6rem;
+                border: 1px solid rgba(0, 0, 0, 0.04);
+                box-shadow: 0 20px 60px rgba(0, 0, 0, 0.04);
+                gap: 0.1rem;
+            }
+
+            .nav.open {
+                display: flex;
+            }
+
+            .nav a {
+                padding: 0.8rem 1.2rem;
+                width: 100%;
+                border-radius: 0;
+                justify-content: center;
+                border-left: 3px solid transparent;
+            }
+
+            .nav a:hover {
+                background: rgba(233, 30, 140, 0.04);
+                border-left-color: #e91e8c;
+                transform: none;
+            }
+
+            .dropdown {
+                width: 100%;
+            }
+
+            .dropdown>a {
+                justify-content: center;
+            }
+
+            .dropdown-menu {
+                position: static;
+                transform: none;
+                background: rgba(0, 0, 0, 0.02);
+                backdrop-filter: none;
+                border-radius: 16px;
+                padding: 0.3rem 0;
+                min-width: auto;
+                box-shadow: none;
+                border: none;
+                opacity: 1;
+                visibility: visible;
+                pointer-events: auto;
+                display: none;
+                margin: 0 0.5rem;
+            }
+
+            .dropdown.open .dropdown-menu {
+                display: block;
+            }
+
+            .dropdown-menu a {
+                padding: 0.6rem 1.6rem;
+                justify-content: center;
+                font-size: 0.85rem;
+                border-left: none;
+            }
+
+            .dropdown-menu a:hover {
+                border-left: none;
+                background: rgba(233, 30, 140, 0.04);
+            }
+
+            .dropdown>a::after {
+                display: none;
+            }
+
+            .box {
+                min-width: 90px;
+                padding: 1rem 0.8rem;
+            }
+
+            .comissao-artistas-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .chamado-card,
+            .artistas-card {
+                max-width: 100%;
+                padding: 1.2rem 1.5rem;
+                min-height: auto;
+                height: auto;
+            }
+
+            .atracoes-col-full {
+                padding: 1.2rem 1rem;
+                max-width: 100%;
+            }
+
+            .item-horario {
+                gap: 0.5rem;
+                padding: 0.4rem 0.6rem;
+                max-width: 100%;
+            }
+
+            .item-horario .hora {
+                min-width: 44px;
+                font-size: 0.75rem;
+            }
+            .item-horario .atracoes-text {
+                font-size: 0.78rem;
+                padding: 0.1rem 0.4rem;
+            }
+
+            .map-wrapper {
+                padding: 0.5rem;
+            }
+            .map-wrapper iframe {
+                height: 300px;
+                border-radius: 16px;
+            }
+
+            .comissao-artistas-section,
+            .atracoes-section,
+            .local-partida {
+                padding: 1.5rem 0;
+                margin: 1rem auto;
+                border-radius: 28px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .box {
+                min-width: 80px;
+                padding: 0.8rem 0.6rem;
+            }
+            .numero {
+                font-size: 1.8rem;
+            }
+            .label {
+                font-size: 0.7rem;
+                letter-spacing: 1px;
+            }
+            .hero-content h1 {
+                font-size: clamp(2rem, 6vw, 3rem);
+            }
+            .chamado-card,
+            .artistas-card {
+                padding: 1rem 1rem;
+                min-height: auto;
+            }
+            .chamado-card .info .titulo,
+            .artistas-card .titulo-card {
+                font-size: 1.1rem;
+            }
+            .chamado-card .info .subtitulo {
+                font-size: 0.9rem;
+            }
+            .chamado-card .info .detalhes {
+                font-size: 0.8rem;
+            }
+            .chamado-card .icone-grande,
+            .artistas-card .icone-artistas {
+                font-size: 2rem;
+            }
+            .artistas-card .descricao {
+                font-size: 0.85rem;
+            }
+
+            .item-horario {
+                gap: 0.3rem;
+                padding: 0.3rem 0.4rem;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .item-horario .hora {
+                min-width: 40px;
+                font-size: 0.7rem;
+            }
+            .item-horario .atracoes-text {
+                font-size: 0.7rem;
+                padding: 0.05rem 0.3rem;
+                gap: 0.3rem;
+            }
+            .badge-atracao {
+                font-size: 0.5rem;
+                padding: 0.05rem 0.4rem;
+            }
+
+            .map-wrapper iframe {
+                height: 250px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .box {
+                min-width: 68px;
+                padding: 0.6rem 0.4rem;
+            }
+            .numero {
+                font-size: 1.5rem;
+            }
+            .label {
+                font-size: 0.6rem;
+            }
+            .logo {
+                font-size: 1rem;
+            }
+            .logo i {
+                font-size: 1.4rem;
+            }
+
+            .map-wrapper iframe {
+                height: 200px;
+            }
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+            padding: 2rem 1rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.04);
+            text-align: center;
+            margin-top: auto;
+            border-radius: 40px 40px 0 0;
+            max-width: 1240px;
+            width: 96%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .footer .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .footer-social a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.02);
+            color: #6a5a6a;
+            font-size: 1.3rem;
+            transition: all 0.3s;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+        }
+
+        .footer-social a:hover {
+            background: rgba(233, 30, 140, 0.06);
+            transform: translateY(-4px);
+            border-color: #e91e8c;
+            color: #e91e8c;
+        }
+
+        .footer p {
+            font-size: 0.85rem;
+            color: #4a3a4a;
+            font-weight: 400;
+        }
+
+        .footer p i {
+            color: #e91e8c;
+            margin: 0 0.3rem;
+        }
+
+        /* ===== MODAL LOGIN ===== */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(8px);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal-login {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 32px;
+            padding: 2.5rem 2rem;
+            max-width: 420px;
+            width: 100%;
+            box-shadow: 0 24px 80px rgba(0, 0, 0, 0.08);
+            position: relative;
+        }
+
+        .modal-login .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1.2rem;
+            background: none;
+            border: none;
+            color: #6a5a6a;
+            font-size: 1.6rem;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .modal-login .close-modal:hover {
+            color: #1a0a1a;
+        }
+
+        .modal-login h2 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #1a0a1a;
+            margin-bottom: 0.2rem;
+        }
+
+        .modal-login p {
+            color: #5a4a5a;
+            font-size: 0.95rem;
+            margin-bottom: 1.8rem;
+        }
+
+        .modal-login .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .modal-login label {
+            display: block;
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: #3a2a3a;
+            margin-bottom: 0.3rem;
+        }
+
+        .modal-login input {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border-radius: 14px;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            background: rgba(0, 0, 0, 0.02);
+            color: #1a0a1a;
+            font-size: 1rem;
+            font-family: 'Montserrat', sans-serif;
+            transition: border-color 0.2s;
+        }
+
+        .modal-login input:focus {
+            outline: none;
+            border-color: #e91e8c;
+        }
+
+        .modal-login .btn-login {
+            width: 100%;
+            padding: 0.9rem;
+            border: none;
+            border-radius: 60px;
+            background: linear-gradient(135deg, #ff1493, #e91e8c);
+            color: #fff;
+            font-weight: 800;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 8px 24px rgba(233, 30, 140, 0.15);
+        }
+
+        .modal-login .btn-login:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(233, 30, 140, 0.25);
+        }
+
+        .modal-login .erro-login {
+            color: #dc3545;
+            font-size: 0.85rem;
+            margin-top: 0.8rem;
+            display: none;
+        }
+
+        .modal-login .erro-login.visible {
+            display: block;
+        }
+
+        .painel-comissao {
+            display: none;
+            margin-top: 2rem;
+        }
+
+        .painel-comissao.active {
+            display: block;
+        }
+
+        .painel-comissao .arquivo-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.8rem 1rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+            transition: background 0.2s;
+            border-radius: 10px;
+        }
+
+        .painel-comissao .arquivo-item:hover {
+            background: rgba(0, 0, 0, 0.02);
+        }
+
+        .painel-comissao .arquivo-item .info {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .painel-comissao .arquivo-item .info i {
+            color: #e91e8c;
+            font-size: 1.3rem;
+            width: 1.8rem;
+            text-align: center;
+        }
+
+        .painel-comissao .arquivo-item .info span {
+            font-weight: 500;
+            color: #1a0a1a;
+        }
+
+        .painel-comissao .arquivo-item .info small {
+            color: #6a5a6a;
+            font-size: 0.75rem;
+            margin-left: 0.5rem;
+        }
+
+        .painel-comissao .arquivo-item .btn-download {
+            background: rgba(0, 0, 0, 0.02);
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            color: #4a3a4a;
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .painel-comissao .arquivo-item .btn-download:hover {
+            background: rgba(233, 30, 140, 0.06);
+            border-color: #e91e8c;
+            color: #e91e8c;
+        }
+
+        .painel-comissao .logout-btn {
+            margin-top: 2rem;
+            background: rgba(0, 0, 0, 0.02);
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            color: #5a4a5a;
+            padding: 0.6rem 1.6rem;
+            border-radius: 60px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.85rem;
+        }
+
+        .painel-comissao .logout-btn:hover {
+            background: rgba(233, 30, 140, 0.04);
+            color: #e91e8c;
+            border-color: #e91e8c;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ===== HEADER ===== -->
+    <header class="header" id="header">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-rainbow"></i>
+                LGBTQIAPN+
+                <span>2026</span>
+            </a>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <nav class="nav" id="mainNav">
+                <a href="index.html" class="active"><i class="fas fa-home"></i> Início</a>
+
+                <div class="dropdown">
+                    <a href="#"><i class="fas fa-info-circle"></i> A Parada</a>
+                    <div class="dropdown-menu">
+                        <a href="historia.html"><i class="fas fa-book"></i> História</a>
+                        <a href="tema-2026.html"><i class="fas fa-flag"></i> Tema 2026</a>
+                        <a href="programacao.html"><i class="fas fa-calendar-alt"></i> Programação</a>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <a href="#"><i class="fas fa-hand-peace"></i> Participe</a>
+                    <div class="dropdown-menu">
+                        <a href="voluntarios.html"><i class="fas fa-hands-helping"></i> Voluntários</a>
+                        <a href="patrocinio.html"><i class="fas fa-hand-holding-heart"></i> Seja Patrocinador</a>
+                        <a href="contato.html"><i class="fas fa-envelope"></i> Contato</a>
+                    </div>
+                </div>
+
+                <a id="btnComissao"><i class="fas fa-users-cog"></i> Comissão</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <h1>22ª Parada do Orgulho <span class="rainbow-text">LGBTQIAPN+</span></h1>
+
+            <div class="data">
+                26 de Julho de 2026 · 12h
+            </div>
+
+            <div class="contador" id="contador">
+                <div class="box">
+                    <span id="dias" class="numero">00</span>
+                    <span class="label">Dias</span>
+                </div>
+                <div class="box">
+                    <span id="horas" class="numero">00</span>
+                    <span class="label">Horas</span>
+                </div>
+                <div class="box">
+                    <span id="minutos" class="numero">00</span>
+                    <span class="label">Minutos</span>
+                </div>
+                <div class="box">
+                    <span id="segundos" class="numero">00</span>
+                    <span class="label">Segundos</span>
+                </div>
+            </div>
+
+            <div class="frase-hero">
+                22 anos de luta. Orgulho que constrói futuros. ✨
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== COMISSÃO + ARTISTAS ===== -->
+    <section class="comissao-artistas-section" id="comissao-artistas">
+        <div class="container">
+            <div class="comissao-artistas-grid">
+                <div class="comissao-col">
+                    <div class="chamado-card">
+                        <div class="icone-grande"><i class="fas fa-users-cog"></i></div>
+                        <div class="info">
+                            <div class="titulo">Participe da Comissão Organizadora</div>
+                            <div class="subtitulo">Reuniões abertas a todas as pessoas</div>
+                            <div class="detalhes">
+                                <i class="fas fa-calendar-alt"></i> Todas as quartas · 15h
+                                <i class="fas fa-map-pin" style="margin-left:0.8rem;"></i> Prefeitura de Betim
+                            </div>
+                        </div>
+                        <a href="https://chat.whatsapp.com/JbXutcdLGJN6cXaHRhvTL3" target="_blank" class="btn-comissao-section">
+                            <i class="fab fa-whatsapp"></i> Quero participar
+                        </a>
+                    </div>
+                </div>
+
+                <div class="artistas-col">
+                    <div class="artistas-card">
+                        <div class="icone-artistas" style="background: linear-gradient(135deg, #ff1493, #ff6b9d); width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 0.8rem;">
+                            <i class="fas fa-microphone-alt" style="color: #fff; font-size: 2rem;"></i>
+                        </div>
+                        <h3 class="titulo-card">Chamada para Artistas Voluntários</h3>
+                        <p class="descricao">Quer fazer parte da maior festa da diversidade? Estamos selecionando artistas, músicos, drag queens, DJs e performers para compor a programação da 22ª Parada do Orgulho LGBTQIAPN+!</p>
+                        <div class="deadline-box">
+                            <i class="fas fa-calendar-alt"></i>
+                            <strong>Inscrições abertas até <span>17 de julho</span></strong>
+                        </div>
+                        <a href="https://moschiat.github.io/paradabetim/inscricoes" class="btn-artistas">
+                            <i class="fas fa-pen"></i> Inscreva-se agora
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ATRAÇÕES (APENAS - CENTRALIZADO) ===== -->
+    <section class="atracoes-section" id="atracoes">
+        <div class="container">
+            <div class="atracoes-col-full">
+                <h2 class="section-title"><i class="fas fa-music"></i> Programação</h2>
+                <p class="section-subtitle">26 de julho · Poli esportivo Betim</p>
+                <div class="lista-horarios">
+                    <div class="item-horario">
+                        <span class="hora">12:00</span>
+                        <span class="atracoes-text"><i class="fas fa-flag-checkered"></i> Concentração <span class="badge-atracao">Início</span></span>
+                    </div>
+                    <div class="item-horario">
+                        <span class="hora">13:00</span>
+                        <span class="atracoes-text"><i class="fas fa-microphone-alt"></i> <span class="artista-nome">DJ Luna</span> <span class="badge-atracao">Eletrônica</span></span>
+                    </div>
+                    <div class="item-horario">
+                        <span class="hora">14:00</span>
+                        <span class="atracoes-text"><i class="fas fa-guitar"></i> <span class="artista-nome">Banda Rainbow</span> <span class="badge-atracao">Rock</span></span>
+                    </div>
+                    <div class="item-horario">
+                        <span class="hora">15:00</span>
+                        <span class="atracoes-text"><i class="fas fa-mask"></i> <span class="artista-nome">Drag Queens</span> <span class="badge-atracao">Arte</span></span>
+                    </div>
+                    <div class="item-horario">
+                        <span class="hora">16:00</span>
+                        <span class="atracoes-text"><i class="fas fa-drum"></i> <span class="artista-nome">Bateria Diversidade</span> <span class="badge-atracao">Samba</span></span>
+                    </div>
+                    <div class="item-horario">
+                        <span class="hora">17:00</span>
+                        <span class="atracoes-text"><i class="fas fa-users"></i> <span class="artista-nome">Bloco Afro</span> <span class="badge-atracao">Música</span></span>
+                    </div>
+                    <div class="item-horario">
+                        <span class="hora">18:00</span>
+                        <span class="atracoes-text"><i class="fas fa-headphones"></i> <span class="artista-nome">DJ Madam P.</span> <span class="badge-atracao">Pop</span></span>
+                    </div>
+                    <div class="item-horario destaque">
+                        <span class="hora">19:00</span>
+                        <span class="atracoes-text"><i class="fas fa-music"></i> <span class="artista-nome">Banda Praça Encontro</span> <span class="badge-atracao">Destaque</span></span>
+                    </div>
+                    <div class="item-horario">
+                        <span class="hora">20:00</span>
+                        <span class="atracoes-text"><i class="fas fa-fire"></i> <span class="artista-nome">Fogo &amp; Luzes</span> <span class="badge-atracao">Efeitos</span></span>
+                    </div>
+                    <div class="item-horario">
+                        <span class="hora">21:00</span>
+                        <span class="atracoes-text"><i class="fas fa-music"></i> <span class="artista-nome">Orquestra Pride</span> <span class="badge-atracao">Clássica</span></span>
+                    </div>
+                    <div class="item-horario">
+                        <span class="hora">22:00</span>
+                        <span class="atracoes-text"><i class="fas fa-glass-cheers"></i> <span class="artista-nome">After DJ Fênix</span> <span class="badge-atracao">Festa</span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== LOCAL DE PARTIDA ===== -->
+    <section class="local-partida" id="local-partida">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-flag-checkered"></i> Local de Partida</h2>
+            <p class="section-subtitle" style="border-bottom: none; padding-bottom: 0;">Concentração no Poliesportivo de Betim.</p>
+            <div class="map-wrapper">
+                <iframe src="https://www.google.com/maps?q=R.+Redelvim+Andrade,+300+-+Horto,+Betim+-+MG,+32604-142&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-social">
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+            </div>
+            <p>
+                <i class="fas fa-rainbow"></i> 22ª Parada do Orgulho LGBTQIAPN+ · Betim, 26 de Julho de 2026
+                <br />
+                <span style="font-size:0.8rem; color:#6a5a6a;">&copy; 2026 · Orgulho, diversidade e resistência</span>
+            </p>
+        </div>
+    </footer>
+
+    <!-- ===== MODAL LOGIN ===== -->
+    <div class="modal-overlay" id="modalComissao">
+        <div class="modal-login">
+            <button class="close-modal" id="closeModal">&times;</button>
+            <div id="loginScreen">
+                <h2><i class="fas fa-users-cog"></i> Comissão</h2>
+                <p>Área restrita · insira suas credenciais</p>
+                <div class="form-group">
+                    <label for="loginUser">Usuário</label>
+                    <input type="text" id="loginUser" placeholder="ex: comissao" />
+                </div>
+                <div class="form-group">
+                    <label for="loginPass">Senha</label>
+                    <input type="password" id="loginPass" placeholder="••••••••" />
+                </div>
+                <button class="btn-login" id="btnLogin">Entrar</button>
+                <div class="erro-login" id="erroLogin">Usuário ou senha inválidos.</div>
+                <div style="margin-top:1rem; font-size:0.75rem; color:#6a5a6a; text-align:center;">Credenciais: comissao / parada2026</div>
+            </div>
+            <div class="painel-comissao" id="painelComissao">
+                <h3 style="color:#1a0a1a; font-size:1.2rem; margin-bottom:0.2rem;"><i class="fas fa-folder-open"></i> Arquivos da Comissão</h3>
+                <p style="color:#5a4a5a; font-size:0.85rem; margin-bottom:1.2rem;">Documentos internos e relatórios</p>
+                <div class="arquivo-item"><div class="info"><i class="fas fa-file-pdf"></i><span>Plano_Logistico_2026.pdf <small>2.4 MB</small></span></div><button class="btn-download" onclick="alert('Download simulado: Plano_Logistico_2026.pdf')"><i class="fas fa-download"></i> Baixar</button></div>
+                <div class="arquivo-item"><div class="info"><i class="fas fa-file-excel"></i><span>Orcamento_Parada.xlsx <small>856 KB</small></span></div><button class="btn-download" onclick="alert('Download simulado: Orcamento_Parada.xlsx')"><i class="fas fa-download"></i> Baixar</button></div>
+                <div class="arquivo-item"><div class="info"><i class="fas fa-file-word"></i><span>Relatorio_Reuniao_Comissao.docx <small>1.1 MB</small></span></div><button class="btn-download" onclick="alert('Download simulado: Relatorio_Reuniao_Comissao.docx')"><i class="fas fa-download"></i> Baixar</button></div>
+                <div class="arquivo-item"><div class="info"><i class="fas fa-file-image"></i><span>Mapa_Palco_2026.png <small>3.2 MB</small></span></div><button class="btn-download" onclick="alert('Download simulado: Mapa_Palco_2026.png')"><i class="fas fa-download"></i> Baixar</button></div>
+                <div class="arquivo-item"><div class="info"><i class="fas fa-file-pdf"></i><span>Programacao_Detalhada.pdf <small>1.8 MB</small></span></div><button class="btn-download" onclick="alert('Download simulado: Programacao_Detalhada.pdf')"><i class="fas fa-download"></i> Baixar</button></div>
+                <button class="logout-btn" id="btnLogout"><i class="fas fa-sign-out-alt"></i> Sair da Comissão</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ===== CONTAGEM REGRESSIVA =====
+        (function() {
+            const dataEvento = new Date("July 26, 2026 12:00:00").getTime();
+            const diasEl = document.getElementById('dias');
+            const horasEl = document.getElementById('horas');
+            const minutosEl = document.getElementById('minutos');
+            const segundosEl = document.getElementById('segundos');
+
+            function atualizarContador() {
+                const agora = Date.now();
+                const distancia = dataEvento - agora;
+
+                if (distancia <= 0) {
+                    document.querySelector('.contador').innerHTML =
+                        '<h2 style="font-size:clamp(1.8rem,4vw,3rem);">🎉 A CONCENTRAÇÃO COMEÇOU! 🎉</h2>' +
+                        '<p style="opacity:0.8;margin-top:0.4rem;">Encontre-nos no Poli esportivo Betim!</p>';
+                    return;
+                }
+
+                const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
+                const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
+                const segundos = Math.floor((distancia % (1000 * 60)) / 1000);
+
+                if (diasEl) diasEl.textContent = String(dias).padStart(2, '0');
+                if (horasEl) horasEl.textContent = String(horas).padStart(2, '0');
+                if (minutosEl) minutosEl.textContent = String(minutos).padStart(2, '0');
+                if (segundosEl) segundosEl.textContent = String(segundos).padStart(2, '0');
+            }
+
+            atualizarContador();
+            setInterval(atualizarContador, 1000);
+        })();
+
+        // ===== MENU MOBILE =====
+        (function() {
+            const toggle = document.getElementById('menuToggle');
+            const nav = document.getElementById('mainNav');
+            const dropdowns = document.querySelectorAll('.dropdown');
+
+            if (toggle && nav) {
+                toggle.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    nav.classList.toggle('open');
+                    const icon = toggle.querySelector('i');
+                    if (icon) {
+                        icon.className = nav.classList.contains('open') ? 'fas fa-times' : 'fas fa-bars';
+                    }
+                });
+
+                nav.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', function() {
+                        if (window.innerWidth <= 820) {
+                            if (!this.closest('.dropdown')) {
+                                nav.classList.remove('open');
+                                const icon = toggle.querySelector('i');
+                                if (icon) icon.className = 'fas fa-bars';
+                            }
+                        }
+                    });
+                });
+
+                dropdowns.forEach(dd => {
+                    const link = dd.querySelector('> a');
+                    if (link) {
+                        link.addEventListener('click', function(e) {
+                            if (window.innerWidth <= 820) {
+                                e.preventDefault();
+                                dd.classList.toggle('open');
+                            }
+                        });
+                    }
+                });
+
+                document.addEventListener('click', function(e) {
+                    if (window.innerWidth <= 820) {
+                        if (!nav.contains(e.target) && !toggle.contains(e.target)) {
+                            nav.classList.remove('open');
+                            const icon = toggle.querySelector('i');
+                            if (icon) icon.className = 'fas fa-bars';
+                            dropdowns.forEach(d => d.classList.remove('open'));
+                        }
+                    }
+                });
+            }
+        })();
+
+        // ===== FECHA DROPDOWN AO PASSAR O MOUSE (Desktop) =====
+        (function() {
+            const dropdowns = document.querySelectorAll('.dropdown');
+            let timeoutId = null;
+
+            dropdowns.forEach(dd => {
+                dd.addEventListener('mouseenter', function() {
+                    if (window.innerWidth > 820) {
+                        clearTimeout(timeoutId);
+                        this.classList.add('open');
+                    }
+                });
+                dd.addEventListener('mouseleave', function() {
+                    if (window.innerWidth > 820) {
+                        timeoutId = setTimeout(() => {
+                            this.classList.remove('open');
+                        }, 150);
+                    }
+                });
+            });
+        })();
+
+        // ===== MODAL COMISSÃO =====
+        (function() {
+            const modal = document.getElementById('modalComissao');
+            const btnAbrir = document.getElementById('btnComissao');
+            const btnFechar = document.getElementById('closeModal');
+            const loginScreen = document.getElementById('loginScreen');
+            const painel = document.getElementById('painelComissao');
+            const btnLogin = document.getElementById('btnLogin');
+            const loginUser = document.getElementById('loginUser');
+            const loginPass = document.getElementById('loginPass');
+            const erroLogin = document.getElementById('erroLogin');
+            const btnLogout = document.getElementById('btnLogout');
+
+            const CREDENTIALS = { user: 'comissao', pass: 'parada2026' };
+
+            function abrirModal() {
+                modal.classList.add('active');
+                loginScreen.style.display = 'block';
+                painel.classList.remove('active');
+                erroLogin.classList.remove('visible');
+                loginUser.value = '';
+                loginPass.value = '';
+                document.body.style.overflow = 'hidden';
+            }
+
+            function fecharModal() {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+                loginScreen.style.display = 'block';
+                painel.classList.remove('active');
+                erroLogin.classList.remove('visible');
+            }
+
+            btnAbrir.addEventListener('click', abrirModal);
+            btnFechar.addEventListener('click', fecharModal);
+
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) fecharModal();
+            });
+
+            btnLogin.addEventListener('click', function() {
+                const user = loginUser.value.trim();
+                const pass = loginPass.value.trim();
+
+                if (user === CREDENTIALS.user && pass === CREDENTIALS.pass) {
+                    loginScreen.style.display = 'none';
+                    painel.classList.add('active');
+                    erroLogin.classList.remove('visible');
+                } else {
+                    erroLogin.classList.add('visible');
+                }
+            });
+
+            loginUser.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter') loginPass.focus();
+            });
+            loginPass.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter') btnLogin.click();
+            });
+
+            btnLogout.addEventListener('click', function() {
+                painel.classList.remove('active');
+                loginScreen.style.display = 'block';
+                loginUser.value = '';
+                loginPass.value = '';
+                erroLogin.classList.remove('visible');
+            });
+
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && modal.classList.contains('active')) {
+                    fecharModal();
+                }
+            });
+        })();
+    </script>
+</body>
+</html>
