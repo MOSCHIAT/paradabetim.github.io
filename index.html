@@ -284,16 +284,6 @@
             display: block;
         }
 
-        .file-info {
-            font-size: 0.8rem;
-            color: #a090a0;
-            margin-top: 0.3rem;
-        }
-        .file-info i {
-            color: #ff1493;
-            margin-right: 0.3rem;
-        }
-
         fieldset {
             border: none;
             padding: 0;
@@ -350,7 +340,6 @@
         <!-- Cabeçalho com logo -->
         <div class="flex flex-col md:flex-row items-center justify-between mb-6 gap-4">
             <div class="flex items-center gap-3">
-                <!-- Logo (substitua o src pelo link da sua imagem quando estiver funcionando) -->
                 <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi-pXuglPdFx0kRGs5zkdNQOa9chJM7feXX6b12F1d493BJZ08UdKdj-rURKXcxCOY4ZndICyZKqPhtdLwA1ufyZsQZBXsZTjHrCjL-3M69anxuxmtiEufmUBilNva6yyr9AKcUAr5AwUvIyTDmuzDzBuLCRSNChRptEbCCRsTXrFD8zPAEMNei9gzkwi7Y/s1600/Screen%20Shot%202026-07-02%20at%2021.08.56.png" alt="Logo 22ª Parada do Orgulho" class="header-logo" />
                 <div>
                     <h1 class="text-xl md:text-2xl font-black text-white leading-tight">
@@ -494,17 +483,7 @@
                             <span><strong>Proibido nudez</strong> – respeite a política do evento.</span>
                         </div>
 
-                        <!-- Upload de documentos -->
-                        <div>
-                            <label for="documentos" class="label-glass">
-                                <i class="fas fa-file-upload mr-2 text-pink-400" aria-hidden="true"></i> Documentos (currículo, release, etc.)
-                            </label>
-                            <input type="file" id="documentos" class="input-glass" multiple accept=".pdf,.doc,.docx,.txt,.jpg,.png" />
-                            <div class="file-info" id="file-info">
-                                <i class="fas fa-info-circle"></i> Nenhum arquivo selecionado.
-                            </div>
-                            <span class="text-xs text-slate-400 block mt-1">Aceitos PDF, DOC, TXT, imagens (máx. 5MB cada).</span>
-                        </div>
+                        <!-- Documentos removido -->
 
                         <div>
                             <label for="instagram" class="label-glass">
@@ -695,7 +674,8 @@
         import { initializeApp } from "firebase/app";
         import { getAnalytics } from "firebase/analytics";
         import { getFirestore, collection, addDoc, serverTimestamp } from "firebase/firestore";
-        import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
+        // Storage não será mais usado, mas mantido para evitar erros
+        import { getStorage } from "firebase/storage";
 
         // ===== CONFIGURAÇÃO =====
         const firebaseConfig = {
@@ -712,6 +692,7 @@
         const app = initializeApp(firebaseConfig);
         const analytics = getAnalytics(app);
         const db = getFirestore(app);
+        // Storage não usado, mas inicializado para evitar erro de import
         const storage = getStorage(app);
 
         // ===== SCRIPT DO FORMULÁRIO =====
@@ -724,8 +705,6 @@
             const progressBar = document.getElementById('progressBar');
             const toast = document.getElementById('global-toast');
             const toastMessage = document.getElementById('toast-message');
-            const submitBtn = document.getElementById('submitBtn');
-            const submitBtnVol = document.getElementById('submitBtnVol');
             const novaInscricaoBtn = document.getElementById('novaInscricaoBtn');
 
             // Tabs
@@ -827,22 +806,6 @@
                 return digits.length >= 10 && digits.length <= 11;
             }
 
-            // ===== UPLOAD DE ARQUIVOS =====
-            const fileInput = document.getElementById('documentos');
-            const fileInfo = document.getElementById('file-info');
-            if (fileInput) {
-                fileInput.addEventListener('change', function() {
-                    const count = this.files.length;
-                    if (count === 0) {
-                        fileInfo.innerHTML = '<i class="fas fa-info-circle"></i> Nenhum arquivo selecionado.';
-                    } else {
-                        const names = Array.from(this.files).map(f => f.name).join(', ');
-                        fileInfo.innerHTML = `<i class="fas fa-file"></i> ${count} arquivo(s): ${names}`;
-                    }
-                    updateProgress();
-                });
-            }
-
             // ===== SUBMISSÃO DO FORMULÁRIO =====
             form.addEventListener('submit', async function(e) {
                 e.preventDefault();
@@ -853,6 +816,7 @@
 
                 let isValid = true;
                 const activePanel = panels[currentRole];
+                const submitBtn = activePanel.querySelector('button[type="submit"]');
 
                 // Função auxiliar para validar campo
                 function validateField(id, errorId, condition) {
@@ -939,8 +903,6 @@
                             if (!dados[key]) dados[key] = [];
                             if (el.checked) dados[key].push(el.value);
                         }
-                    } else if (el.type === 'file') {
-                        // Arquivos serão tratados separadamente
                     } else {
                         dados[key] = el.value.trim();
                     }
@@ -953,37 +915,12 @@
                     }
                 });
 
-                // ===== UPLOAD DE ARQUIVOS =====
-                const files = fileInput ? fileInput.files : null;
-                const uploadPromises = [];
-
-                if (files && files.length > 0) {
-                    const uploadFolder = `documentos/${dados.email || 'anonimo'}/`;
-                    for (let i = 0; i < files.length; i++) {
-                        const file = files[i];
-                        if (file.size > 5 * 1024 * 1024) {
-                            showToast(`O arquivo "${file.name}" excede 5MB.`, 'error');
-                            return;
-                        }
-                        const fileRef = ref(storage, uploadFolder + file.name);
-                        const snapshot = await uploadBytes(fileRef, file);
-                        const url = await getDownloadURL(snapshot.ref);
-                        uploadPromises.push(url);
-                    }
-                }
-
                 // Desabilita botão
-                const btn = activePanel.querySelector('button[type="submit"]');
-                btn.disabled = true;
-                btn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2" aria-hidden="true"></i> Enviando...';
+                submitBtn.disabled = true;
+                const originalText = submitBtn.innerHTML;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2" aria-hidden="true"></i> Enviando...';
 
                 try {
-                    // Aguarda uploads
-                    const urls = await Promise.all(uploadPromises);
-                    if (urls.length > 0) {
-                        dados.documentosURLs = urls;
-                    }
-
                     // Salva no Firestore
                     await addDoc(collection(db, "inscricoes"), dados);
 
@@ -997,18 +934,15 @@
                 } catch (erro) {
                     console.error('Erro no envio:', erro);
                     showToast('Erro ao salvar sua inscrição: ' + erro.message, 'error');
-                    btn.disabled = false;
-                    btn.innerHTML = '<i class="fas fa-paper-plane mr-2" aria-hidden="true"></i> Enviar inscrição';
+                    // Reabilita o botão
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = originalText;
                 }
             });
 
             // ===== BOTÃO "NOVA INSCRIÇÃO" =====
             novaInscricaoBtn.addEventListener('click', function() {
                 form.reset();
-                if (fileInput) {
-                    fileInput.value = '';
-                    fileInfo.innerHTML = '<i class="fas fa-info-circle"></i> Nenhum arquivo selecionado.';
-                }
                 document.querySelectorAll('.error-message').forEach(el => el.classList.remove('visible'));
                 document.querySelectorAll('.input-error').forEach(el => el.classList.remove('input-error'));
                 successScreen.classList.remove('active');
