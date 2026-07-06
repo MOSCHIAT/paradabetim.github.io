@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>22ª Parada do Orgulho – Inscrições · Betim 2026</title>
 
+  <!-- Favicon -->
+  <link rel="icon" href="https://raw.githubusercontent.com/MOSCHIAT/paradabetim.com.br/refs/heads/main/logo.ico" type="image/x-icon" />
+
   <!-- SEO & Metadados -->
   <meta name="description" content="Inscreva-se como artista voluntário ou apoio logístico na 22ª Parada do Orgulho LGBTQIAPN+ em Betim. Participe deste evento histórico!" />
   <meta name="keywords" content="Parada do Orgulho, Betim, LGBTQIAPN+, 2026, inscrições, voluntário, artista" />
@@ -24,15 +27,15 @@
   <meta name="twitter:title" content="22ª Parada do Orgulho – Inscrições" />
   <meta name="twitter:description" content="Inscreva-se como artista voluntário ou apoio logístico. Participe da maior celebração da diversidade em Betim." />
 
-  <!-- Google Fonts (combinação jornalística) -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700;14..32,800&family=Merriweather:wght@700;900&display=swap" rel="stylesheet" />
 
-  <!-- Font Awesome (ícones) -->
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
-  <!-- Tailwind via CDN (apenas para utilitários de layout) -->
+  <!-- Tailwind via CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -58,9 +61,8 @@
     }
   </script>
 
-  <!-- Estilos customizados (base + aprimoramentos) -->
+  <!-- Estilos customizados -->
   <style>
-    /* Reset e base */
     * {
       margin: 0;
       padding: 0;
@@ -77,7 +79,6 @@
       flex-direction: column;
     }
 
-    /* Layout principal */
     .site-wrapper {
       max-width: 1200px;
       margin: 0 auto;
@@ -88,7 +89,7 @@
       flex-direction: column;
     }
 
-    /* Cabeçalho estilo portal */
+    /* Cabeçalho */
     .portal-header {
       display: flex;
       flex-wrap: wrap;
@@ -155,7 +156,6 @@
       color: #e84393;
     }
 
-    /* Breadcrumb / indicador */
     .breadcrumb {
       font-size: 0.8rem;
       color: #6c757d;
@@ -173,7 +173,6 @@
       text-decoration: underline;
     }
 
-    /* Card principal do formulário */
     .form-card {
       background: #ffffff;
       border-radius: 24px;
@@ -200,7 +199,6 @@
       }
     }
 
-    /* Títulos */
     .form-title {
       font-family: 'Merriweather', serif;
       font-weight: 900;
@@ -215,7 +213,6 @@
       margin-bottom: 1.5rem;
     }
 
-    /* Imagem de cabeçalho do formulário */
     .form-header-image {
       display: block;
       max-width: 100%;
@@ -225,7 +222,6 @@
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
     }
 
-    /* Barra de progresso refinada */
     .progress-wrapper {
       margin-bottom: 2rem;
     }
@@ -254,7 +250,6 @@
       transition: width 0.5s ease;
     }
 
-    /* Tabs estilizadas */
     .tab-list {
       display: flex;
       gap: 0.25rem;
@@ -317,7 +312,6 @@
       }
     }
 
-    /* Campos do formulário */
     .field-group {
       margin-bottom: 1.25rem;
     }
@@ -401,7 +395,6 @@
       box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.1);
     }
 
-    /* Checkbox / Radio custom */
     .custom-check {
       display: flex;
       align-items: flex-start;
@@ -433,7 +426,6 @@
       margin-top: 0.3rem;
     }
 
-    /* Aviso nudez */
     .nudity-warning {
       background: #fff5f5;
       border-left: 4px solid #dc3545;
@@ -451,7 +443,6 @@
       font-size: 1.2rem;
     }
 
-    /* Botão principal */
     .btn-primary {
       background: linear-gradient(135deg, #e84393, #d6336c);
       border: none;
@@ -505,7 +496,6 @@
       background: rgba(232, 67, 147, 0.04);
     }
 
-    /* Tela de sucesso */
     .success-screen {
       display: none;
       text-align: center;
@@ -532,39 +522,141 @@
       margin: 0.5rem auto 1.5rem;
     }
 
-    /* Rodapé */
+    /* Rodapé novo */
     .portal-footer {
       border-top: 1px solid #e9ecef;
-      padding-top: 1.5rem;
-      margin-top: 1.5rem;
+      padding-top: 2rem;
+      margin-top: 2rem;
+      background: #ffffff;
+      border-radius: 24px 24px 0 0;
+      box-shadow: 0 -4px 20px rgba(0,0,0,0.02);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      gap: 2rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid #e9ecef;
+    }
+
+    .footer-grid .col h4 {
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: #1a1a2e;
+      margin-bottom: 1rem;
+      letter-spacing: 0.02em;
+    }
+
+    .footer-grid .col ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .footer-grid .col ul li {
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-grid .col ul li a {
+      color: #6c757d;
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: color 0.2s;
+    }
+
+    .footer-grid .col ul li a:hover {
+      color: #e84393;
+    }
+
+    .footer-logo img {
+      height: 40px;
+      width: auto;
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-logo p {
+      font-size: 0.8rem;
+      color: #6c757d;
+      max-width: 200px;
+    }
+
+    .footer-contact li {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #6c757d;
+      font-size: 0.85rem;
+    }
+
+    .footer-contact li i {
+      color: #e84393;
+      width: 1.2rem;
+      text-align: center;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .footer-social a {
+      color: #6c757d;
+      font-size: 1.3rem;
+      transition: color 0.2s;
+    }
+    .footer-social a:hover {
+      color: #e84393;
+    }
+
+    .footer-bottom {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
+      padding-top: 1.5rem;
       font-size: 0.8rem;
       color: #6c757d;
     }
-    .portal-footer a {
-      color: #1a1a2e;
+
+    .footer-bottom .legal-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .footer-bottom .legal-links a {
+      color: #6c757d;
       text-decoration: none;
     }
-    .portal-footer a:hover {
-      text-decoration: underline;
-    }
-    .portal-footer .social-links {
-      display: flex;
-      gap: 1rem;
-    }
-    .portal-footer .social-links a {
-      font-size: 1.2rem;
-      color: #6c757d;
-      transition: color 0.2s;
-    }
-    .portal-footer .social-links a:hover {
+
+    .footer-bottom .legal-links a:hover {
       color: #e84393;
     }
 
-    /* Toast (notificação) */
+    @media (max-width: 768px) {
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-bottom {
+        flex-direction: column;
+        gap: 0.8rem;
+        text-align: center;
+      }
+      .footer-bottom .legal-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.8rem 1.5rem;
+      }
+    }
+
     #global-toast {
       position: fixed;
       top: 1.5rem;
@@ -596,29 +688,13 @@
     #global-toast.success i {
       color: #28a745;
     }
-
-    /* Ajustes de responsividade */
-    @media (max-width: 640px) {
-      .form-title {
-        font-size: 1.6rem;
-      }
-      .portal-nav {
-        gap: 0.8rem;
-      }
-      .portal-nav a {
-        font-size: 0.8rem;
-      }
-      .checkbox-group-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
   </style>
 </head>
 <body>
 
   <div class="site-wrapper">
 
-    <!-- ===== Cabeçalho estilo portal ===== -->
+    <!-- ===== Cabeçalho ===== -->
     <header class="portal-header">
       <div class="logo-area">
         <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi-pXuglPdFx0kRGs5zkdNQOa9chJM7feXX6b12F1d493BJZ08UdKdj-rURKXcxCOY4ZndICyZKqPhtdLwA1ufyZsQZBXsZTjHrCjL-3M69anxuxmtiEufmUBilNva6yyr9AKcUAr5AwUvIyTDmuzDzBuLCRSNChRptEbCCRsTXrFD8zPAEMNei9gzkwi7Y/s1600/Screen%20Shot%202026-07-02%20at%2021.08.56.png" alt="Logo 22ª Parada do Orgulho Betim" />
@@ -631,10 +707,7 @@
       </div>
       <nav class="portal-nav" aria-label="Navegação principal">
         <a href="/">Início</a>
-        <a href="/sobre">Sobre</a>
-        <a href="/programacao">Programação</a>
         <a href="/inscricoes" class="active">Inscrições</a>
-        <a href="/contato">Contato</a>
       </nav>
     </header>
 
@@ -648,21 +721,18 @@
     <!-- ===== Card do formulário ===== -->
     <main class="form-card" id="mainCard">
 
-      <!-- Imagem de cabeçalho (adicionei aqui) -->
       <img 
         src="https://raw.githubusercontent.com/MOSCHIAT/paradabetim.com.br/main/haedform.png" 
         alt="Cabeçalho da página de inscrições - 22ª Parada do Orgulho Betim" 
         class="form-header-image"
       />
 
-      <!-- Título e descrição -->
       <h1 class="form-title">Faça sua inscrição</h1>
       <p class="form-subtitle">
         Participe da 22ª Parada do Orgulho como <strong>artista voluntário</strong> ou <strong>apoio logístico</strong>.
         Preencha os dados abaixo e contribua para este grande evento!
       </p>
 
-      <!-- Barra de progresso -->
       <div class="progress-wrapper" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="progressBar">
         <div class="progress-header">
           <span>Progresso</span>
@@ -691,7 +761,6 @@
 
           <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-4">
 
-            <!-- Nome -->
             <div class="field-group">
               <label for="nome-artista" class="field-label">
                 <i class="fas fa-user" aria-hidden="true"></i> Nome completo <span class="required">*</span>
@@ -700,7 +769,6 @@
               <div class="error-message" id="err-nome-artista"><i class="fas fa-exclamation-circle"></i> Preencha seu nome completo.</div>
             </div>
 
-            <!-- E-mail -->
             <div class="field-group">
               <label for="email-artista" class="field-label">
                 <i class="fas fa-envelope" aria-hidden="true"></i> E-mail <span class="required">*</span>
@@ -709,7 +777,6 @@
               <div class="error-message" id="err-email-artista"><i class="fas fa-exclamation-circle"></i> Informe um e-mail válido (ex: nome@dominio.com).</div>
             </div>
 
-            <!-- Telefone -->
             <div class="field-group">
               <label for="telefone-artista" class="field-label">
                 <i class="fas fa-phone" aria-hidden="true"></i> Telefone / WhatsApp <span class="required">*</span>
@@ -718,7 +785,6 @@
               <div class="error-message" id="err-telefone-artista"><i class="fas fa-exclamation-circle"></i> Informe um telefone válido (DDD + 8 ou 9 dígitos).</div>
             </div>
 
-            <!-- Nascimento -->
             <div class="field-group">
               <label for="nascimento-artista" class="field-label">
                 <i class="fas fa-calendar-alt" aria-hidden="true"></i> Data de nascimento
@@ -726,7 +792,6 @@
               <input type="date" id="nascimento-artista" class="field-input" data-firestore="nascimento" />
             </div>
 
-            <!-- Cidade -->
             <div class="field-group md:col-span-2">
               <label for="cidade-artista" class="field-label">
                 <i class="fas fa-map-pin" aria-hidden="true"></i> Cidade / Estado
@@ -734,7 +799,6 @@
               <input type="text" id="cidade-artista" class="field-input" placeholder="Betim - MG" data-firestore="cidade" />
             </div>
 
-            <!-- Nome artístico -->
             <div class="field-group">
               <label for="nomeArtistico" class="field-label">
                 <i class="fas fa-tag" aria-hidden="true"></i> Nome artístico <span class="required">*</span>
@@ -743,7 +807,6 @@
               <div class="error-message" id="err-nomeArtistico"><i class="fas fa-exclamation-circle"></i> Informe seu nome artístico.</div>
             </div>
 
-            <!-- Gênero/estilo -->
             <div class="field-group">
               <label for="genero" class="field-label">
                 <i class="fas fa-music" aria-hidden="true"></i> Gênero / Estilo <span class="required">*</span>
@@ -752,7 +815,6 @@
               <div class="error-message" id="err-genero"><i class="fas fa-exclamation-circle"></i> Informe o gênero/estilo da sua apresentação.</div>
             </div>
 
-            <!-- Bio -->
             <div class="field-group md:col-span-2">
               <label for="bio" class="field-label">
                 <i class="fas fa-align-left" aria-hidden="true"></i> Biografia / Descrição artística
@@ -760,7 +822,6 @@
               <textarea id="bio" class="field-textarea" rows="3" placeholder="Conte um pouco sobre sua trajetória..." data-firestore="bio"></textarea>
             </div>
 
-            <!-- Portfólio -->
             <div class="field-group">
               <label for="portfolioLink" class="field-label">
                 <i class="fas fa-link" aria-hidden="true"></i> Link do portfólio (YouTube, SoundCloud, etc.)
@@ -768,7 +829,6 @@
               <input type="url" id="portfolioLink" class="field-input" placeholder="https://..." data-firestore="portfolioLink" />
             </div>
 
-            <!-- Tipo apresentação -->
             <div class="field-group">
               <label for="tipoApresentacao" class="field-label">
                 <i class="fas fa-clock" aria-hidden="true"></i> Tipo de apresentação / Tempo estimado <span class="required">*</span>
@@ -781,7 +841,6 @@
               <div class="error-message" id="err-tipoApresentacao"><i class="fas fa-exclamation-circle"></i> Selecione o tipo de apresentação.</div>
             </div>
 
-            <!-- Músicas -->
             <div class="field-group md:col-span-2">
               <label for="musicas" class="field-label">
                 <i class="fas fa-list-ul" aria-hidden="true"></i> Músicas que pretende apresentar <span class="required">*</span>
@@ -790,13 +849,11 @@
               <div class="error-message" id="err-musicas"><i class="fas fa-exclamation-circle"></i> Descreva as músicas que irá apresentar.</div>
             </div>
 
-            <!-- Aviso nudez -->
             <div class="md:col-span-2 nudity-warning">
               <i class="fas fa-ban" aria-hidden="true"></i>
               <span><strong>Proibido nudez</strong> – respeite a política do evento.</span>
             </div>
 
-            <!-- Redes sociais -->
             <div class="field-group md:col-span-2">
               <label class="field-label">
                 <i class="fas fa-share-alt" aria-hidden="true"></i> Redes sociais
@@ -810,7 +867,6 @@
             </div>
           </div>
 
-          <!-- Termos -->
           <div class="field-group mt-4">
             <div class="custom-check">
               <input type="checkbox" id="termos-artista" required aria-required="true" data-firestore="termos" />
@@ -821,7 +877,6 @@
             <div class="error-message" id="err-termos-artista"><i class="fas fa-exclamation-circle"></i> Você deve aceitar os termos.</div>
           </div>
 
-          <!-- Submit -->
           <button type="submit" class="btn-primary" id="submitBtnArtista">
             <i class="fas fa-paper-plane" aria-hidden="true"></i> Enviar inscrição
           </button>
@@ -833,7 +888,6 @@
 
           <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-4">
 
-            <!-- Nome -->
             <div class="field-group">
               <label for="nome-vol" class="field-label">
                 <i class="fas fa-user" aria-hidden="true"></i> Nome completo <span class="required">*</span>
@@ -842,7 +896,6 @@
               <div class="error-message" id="err-nome-vol"><i class="fas fa-exclamation-circle"></i> Preencha seu nome completo.</div>
             </div>
 
-            <!-- E-mail -->
             <div class="field-group">
               <label for="email-vol" class="field-label">
                 <i class="fas fa-envelope" aria-hidden="true"></i> E-mail <span class="required">*</span>
@@ -851,7 +904,6 @@
               <div class="error-message" id="err-email-vol"><i class="fas fa-exclamation-circle"></i> Informe um e-mail válido (ex: nome@dominio.com).</div>
             </div>
 
-            <!-- Telefone -->
             <div class="field-group">
               <label for="telefone-vol" class="field-label">
                 <i class="fas fa-phone" aria-hidden="true"></i> Telefone / WhatsApp <span class="required">*</span>
@@ -860,7 +912,6 @@
               <div class="error-message" id="err-telefone-vol"><i class="fas fa-exclamation-circle"></i> Informe um telefone válido (DDD + 8 ou 9 dígitos).</div>
             </div>
 
-            <!-- Nascimento -->
             <div class="field-group">
               <label for="nascimento-vol" class="field-label">
                 <i class="fas fa-calendar-alt" aria-hidden="true"></i> Data de nascimento
@@ -868,7 +919,6 @@
               <input type="date" id="nascimento-vol" class="field-input" data-firestore="nascimento" />
             </div>
 
-            <!-- Cidade -->
             <div class="field-group md:col-span-2">
               <label for="cidade-vol" class="field-label">
                 <i class="fas fa-map-pin" aria-hidden="true"></i> Cidade / Estado
@@ -876,7 +926,6 @@
               <input type="text" id="cidade-vol" class="field-input" placeholder="Betim - MG" data-firestore="cidade" />
             </div>
 
-            <!-- Áreas de atuação -->
             <div class="field-group md:col-span-2">
               <label class="field-label">
                 <i class="fas fa-bolt" aria-hidden="true"></i> Áreas de atuação <span class="required">*</span>
@@ -904,7 +953,6 @@
               <div class="error-message" id="err-areas-vol"><i class="fas fa-exclamation-circle"></i> Selecione pelo menos uma área.</div>
             </div>
 
-            <!-- Disponibilidade -->
             <div class="field-group">
               <label for="disponibilidade" class="field-label">
                 <i class="fas fa-clock" aria-hidden="true"></i> Disponibilidade de horário
@@ -920,7 +968,6 @@
               </select>
             </div>
 
-            <!-- Tamanho camiseta -->
             <div class="field-group">
               <label for="tamanhoCamiseta" class="field-label">
                 <i class="fas fa-tshirt" aria-hidden="true"></i> Tamanho da camiseta
@@ -937,7 +984,6 @@
             </div>
           </div>
 
-          <!-- Termos -->
           <div class="field-group mt-4">
             <div class="custom-check">
               <input type="checkbox" id="termos-vol" required aria-required="true" data-firestore="termos" />
@@ -948,7 +994,6 @@
             <div class="error-message" id="err-termos-vol"><i class="fas fa-exclamation-circle"></i> Você deve aceitar os termos.</div>
           </div>
 
-          <!-- Submit -->
           <button type="submit" class="btn-primary" id="submitBtnVol">
             <i class="fas fa-paper-plane" aria-hidden="true"></i> Enviar inscrição
           </button>
@@ -976,17 +1021,66 @@
 
     </main>
 
-    <!-- ===== RODAPÉ ===== -->
+    <!-- ===== RODAPÉ GLOBAL ===== -->
     <footer class="portal-footer">
-      <div>
-        &copy; 2026 <a href="/">22ª Parada do Orgulho Betim</a> · Todos os direitos reservados.
+
+      <div class="footer-grid">
+
+        <!-- Logo & Descrição -->
+        <div class="col footer-logo">
+          <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi-pXuglPdFx0kRGs5zkdNQOa9chJM7feXX6b12F1d493BJZ08UdKdj-rURKXcxCOY4ZndICyZKqPhtdLwA1ufyZsQZBXsZTjHrCjL-3M69anxuxmtiEufmUBilNva6yyr9AKcUAr5AwUvIyTDmuzDzBuLCRSNChRptEbCCRsTXrFD8zPAEMNei9gzkwi7Y/s1600/Screen%20Shot%202026-07-02%20at%2021.08.56.png" alt="22ª Parada do Orgulho Betim" />
+          <p>Celebrando a diversidade e promovendo a visibilidade LGBTQIAPN+ em Betim.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+          </div>
+        </div>
+
+        <!-- Links rápidos -->
+        <div class="col">
+          <h4>Links rápidos</h4>
+          <ul>
+            <li><a href="/">Início</a></li>
+            <li><a href="/inscricoes">Inscrições</a></li>
+            <li><a href="/programacao">Programação</a></li>
+            <li><a href="/sobre">Sobre o evento</a></li>
+          </ul>
+        </div>
+
+        <!-- Categorias -->
+        <div class="col">
+          <h4>Categorias</h4>
+          <ul>
+            <li><a href="/categoria/artistas">Artistas</a></li>
+            <li><a href="/categoria/voluntarios">Voluntários</a></li>
+            <li><a href="/categoria/apoio">Apoio</a></li>
+            <li><a href="/categoria/noticias">Notícias</a></li>
+          </ul>
+        </div>
+
+        <!-- Contato -->
+        <div class="col">
+          <h4>Contato</h4>
+          <ul class="footer-contact">
+            <li><i class="fas fa-envelope"></i> contato@paradabetim.com.br</li>
+            <li><i class="fas fa-phone"></i> (31) 9 0000-0000</li>
+            <li><i class="fas fa-map-marker-alt"></i> Betim, MG - Brasil</li>
+          </ul>
+        </div>
+
       </div>
-      <div class="social-links">
-        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-        <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+
+      <!-- Rodapé inferior -->
+      <div class="footer-bottom">
+        <span>&copy; 2026 22ª Parada do Orgulho Betim · Todos os direitos reservados.</span>
+        <div class="legal-links">
+          <a href="/privacidade">Política de Privacidade</a>
+          <a href="/termos">Termos de Uso</a>
+        </div>
       </div>
+
     </footer>
 
   </div>
@@ -997,7 +1091,7 @@
     <span id="toast-message">Mensagem</span>
   </div>
 
-  <!-- ===== FIREBASE (modular) ===== -->
+  <!-- ===== FIREBASE ===== -->
   <script type="importmap">
     {
       "imports": {
@@ -1010,13 +1104,11 @@
   </script>
 
   <script type="module">
-    // ===== IMPORTAÇÕES =====
     import { initializeApp } from "firebase/app";
     import { getAnalytics } from "firebase/analytics";
     import { getFirestore, collection, addDoc, serverTimestamp } from "firebase/firestore";
     import { getStorage } from "firebase/storage";
 
-    // ===== CONFIG =====
     const firebaseConfig = {
       apiKey: "AIzaSyCrP-7DRcbjPdUlZBAehW4v3wj3wK5YQZ0",
       authDomain: "parada-inscricoes.firebaseapp.com",
@@ -1032,7 +1124,6 @@
     const db = getFirestore(app);
     const storage = getStorage(app);
 
-    // ===== SCRIPT DO FORMULÁRIO =====
     (function() {
       const form = document.getElementById('mainForm');
       const successScreen = document.getElementById('successScreen');
@@ -1050,7 +1141,6 @@
       };
       let currentRole = 'artista';
 
-      // ===== TOAST =====
       function showToast(message, type = 'error') {
         const icon = toast.querySelector('i');
         toast.className = 'show';
@@ -1069,7 +1159,6 @@
         }, 5000);
       }
 
-      // ===== TABS =====
       function switchTab(role) {
         currentRole = role;
         tabBtns.forEach(btn => {
@@ -1108,7 +1197,6 @@
         });
       });
 
-      // ===== PROGRESSO =====
       function updateProgress() {
         const activePanel = panels[currentRole];
         const inputs = activePanel.querySelectorAll('input[required], select[required], textarea[required]');
@@ -1131,7 +1219,6 @@
       document.addEventListener('change', updateProgress);
       document.addEventListener('input', updateProgress);
 
-      // ===== VALIDAÇÕES =====
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
       function isValidEmail(val) { return emailRegex.test(val); }
@@ -1141,7 +1228,6 @@
         return digits.length >= 10 && digits.length <= 11;
       }
 
-      // ===== SUBMISSÃO =====
       form.addEventListener('submit', async function(e) {
         e.preventDefault();
 
@@ -1219,7 +1305,6 @@
           return;
         }
 
-        // Coleta dados
         const dados = {
           tipo: currentRole,
           dataHora: serverTimestamp()
@@ -1265,7 +1350,6 @@
         }
       });
 
-      // ===== NOVA INSCRIÇÃO =====
       novaInscricaoBtn.addEventListener('click', function() {
         form.reset();
         document.querySelectorAll('.error-message').forEach(el => el.classList.remove('visible'));
@@ -1283,7 +1367,6 @@
         window.scrollTo({ top: 0, behavior: 'smooth' });
       });
 
-      // ===== MÁSCARA TELEFONE =====
       document.querySelectorAll('input[type="tel"]').forEach(input => {
         input.addEventListener('input', function() {
           let val = this.value.replace(/\D/g, '');
@@ -1302,7 +1385,6 @@
         });
       });
 
-      // ===== INICIALIZA =====
       switchTab('artista');
       setTimeout(updateProgress, 200);
 
