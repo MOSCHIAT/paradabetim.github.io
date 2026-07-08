@@ -1415,7 +1415,7 @@
     <!-- /site-wrapper -->
 
     <!-- ============================================================
-    THREE.JS para o Modelo 3D (com centralização automática)
+    THREE.JS para o Modelo 3D (estático, apenas de frente)
     ============================================================ -->
     <script type="importmap">
         {
@@ -1494,12 +1494,10 @@
                 // Adicionar à cena
                 scene.add(object);
 
-                // Animação (rotação automática)
+                // Animação (sem rotação - apenas renderização estática)
                 function animate() {
                     requestAnimationFrame(animate);
-                    if (object) {
-                        object.rotation.y += 0.005;
-                    }
+                    // Removida a rotação automática → modelo fica parado, de frente
                     renderer.render(scene, camera);
                 }
                 animate();
