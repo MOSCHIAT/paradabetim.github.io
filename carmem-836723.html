@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carta Convite - Carmen Lúcia de Almeida</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    @page {
+      size: A4;
+      margin: 0;
+    }
+
+    body {
+      background: #c9b0ba;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      font-family: 'Times New Roman', Times, serif;
+      padding: 20px;
+    }
+
+    .a4-page {
+      width: 210mm;
+      min-height: 297mm;
+      background: #fce4ec;
+      padding: 22mm 26mm;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+      border-radius: 6px;
+      border: 1px solid #eaccd6;
+      position: relative;
+      line-height: 1.7;
+      color: #2c1a20;
+      font-size: 15px;
+      overflow: hidden;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+      color-adjust: exact !important;
+    }
+
+    .watermark {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 70%;
+      background-image: url('https://raw.githubusercontent.com/MOSCHIAT/paradabetim.com.br/main/a4b.png');
+      background-repeat: no-repeat;
+      background-position: bottom center;
+      background-size: contain;
+      opacity: 0.3;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .header-right {
+      text-align: right;
+      margin-bottom: 18px;
+    }
+    .header-right p {
+      margin: 2px 0;
+      font-size: 15px;
+    }
+
+    .salutation {
+      margin-top: 25px;
+      margin-bottom: 12px;
+    }
+    .salutation p {
+      margin: 3px 0;
+    }
+
+    .subject {
+      font-weight: bold;
+      margin: 18px 0 16px 0;
+      font-size: 15px;
+    }
+
+    .body-text {
+      text-align: justify;
+      margin-bottom: 12px;
+      text-indent: 2em;
+    }
+
+    .list-details {
+      margin: 10px 0 15px 40px;
+      list-style: none;
+    }
+    .list-details li {
+      margin-bottom: 4px;
+    }
+
+    .closing {
+      margin-top: 28px;
+      text-align: left;
+    }
+
+    .signature {
+      margin-top: 45px;
+      text-align: center;
+    }
+    .signature hr {
+      width: 220px;
+      margin: 0 auto 6px auto;
+      border: none;
+      border-top: 1.5px solid #2c1a20;
+    }
+    .signature p {
+      margin: 3px 0;
+      font-size: 15px;
+    }
+
+    strong {
+      font-weight: 700;
+      color: #1f1015;
+    }
+
+    @media print {
+      body {
+        background: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+      }
+      .a4-page {
+        width: 100%;
+        min-height: 100vh;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+        border: none !important;
+        padding: 22mm 26mm;
+        margin: 0 auto;
+        background: #fce4ec !important;
+      }
+      .watermark {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        color-adjust: exact !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="a4-page">
+
+    <div class="watermark"></div>
+
+    <div class="content">
+
+      <div class="header-right">
+        <p><strong>CARTA CONVITE N.º [XXX/2026]</strong></p>
+        <p>Betim, 20 de julho de 2026.</p>
+      </div>
+
+      <div class="salutation">
+        <p><strong>À Ilustríssima Sra. Carmen Lúcia de Almeida</strong></p>
+      </div>
+
+      <p class="subject"><strong>Assunto: Convite para recebimento do 14º Prêmio de Direitos Humanos LGBTQIA+ de Betim</strong></p>
+
+      <p class="body-text">
+        Prezada Sra. Carmen Lúcia de Almeida,
+      </p>
+
+      <p class="body-text">
+        É com imensa satisfação e reconhecimento que vimos, por meio desta, comunicar que <strong>Vossa Senhoria foi selecionada para receber a 14ª edição do Prêmio de Direitos Humanos LGBTQIA+ de Betim</strong>.
+      </p>
+
+      <p class="body-text">
+        A escolha de seu nome foi conduzida de forma coletiva pela <strong>ASSOCIAÇÃO COMUNIDADE LGBTI+ DE BETIM</strong>, em parceria com a <strong>Superintendência de Igualdade</strong>, e contou com a participação de diversos atores sociais. Sua trajetória de destaque e atuação incansável na promoção e defesa dos direitos da população LGBTQIA+ – especialmente nos campos do <strong>Ativismo Comunitário</strong> – foram fundamentais para que seu nome fosse unanimemente reconhecido como merecedor desta honraria.
+      </p>
+
+      <p class="body-text">
+        A cerimônia de entrega do prêmio ocorrerá conforme os detalhes abaixo:
+      </p>
+
+      <ul class="list-details">
+        <li><strong>Data:</strong> 24 de julho de 2026;</li>
+        <li><strong>Horário:</strong> Das 18h às 21h (recomendamos a chegada com 30 minutos de antecedência para acomodação);</li>
+        <li><strong>Local:</strong> Câmara Municipal de Betim.</li>
+      </ul>
+
+      <p class="body-text">
+        Durante a solenidade, haverá um momento destinado à fala dos homenageados (cerca de 2 a 3 minutos para agradecimentos e breves palavras). Caso prefira, poderá preparar um pequeno discurso ou mensagem.
+      </p>
+
+      <p class="body-text">
+        Para que possamos organizar a cerimônia com a excelência que o momento exige, solicitamos a gentileza de confirmar sua <strong>presença e a de seus acompanhantes</strong> (até <strong>2</strong> convidados) até o dia <strong>20 de julho</strong>, por meio do site <strong>paradabetim.com.br/checkin</strong> (acessando o formulário de confirmação do evento).
+      </p>
+
+      <p class="body-text">
+        A confirmação é essencial para garantir a disposição dos certificados, troféus e lugares no evento.
+      </p>
+
+      <p class="body-text">
+        Aproveitamos para expressar nossa profunda gratidão por sua trajetória e por tudo o que a senhora representa para a construção de uma Betim mais igualitária, respeitosa e livre de discriminação. Sua luta é a nossa inspiração.
+      </p>
+
+      <p class="body-text">
+        Estaremos honrados em tê-la conosco nesta noite especial.
+      </p>
+
+      <div class="closing">
+        <p>Atenciosamente,</p>
+      </div>
+
+      <div class="signature">
+        <hr>
+        <p><strong>Iracema Aparecida de Assis e Santos</strong></p>
+        <p>Superintendente de Igualdade</p>
+        <p>Prefeitura de Betim</p>
+      </div>
+
+    </div>
+
+  </div>
+
+</body>
+</html>
