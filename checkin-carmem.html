@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Check-in - Carmen Lúcia de Almeida</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      background: #c9b0ba;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Times New Roman', Times, serif;
+      padding: 30px 20px;
+    }
+
+    .checkin-card {
+      max-width: 800px;
+      width: 100%;
+      background: #fce4ec;
+      padding: 50px 60px;
+      border-radius: 12px;
+      border: 1px solid #eaccd6;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+      position: relative;
+      overflow: hidden;
+      line-height: 1.7;
+      color: #2c1a20;
+      font-size: 16px;
+    }
+
+    .watermark {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 60%;
+      background-image: url('https://github.com/MOSCHIAT/paradabetim.com.br/blob/main/cc.png?raw=true');
+      background-repeat: no-repeat;
+      background-position: bottom center;
+      background-size: contain;
+      opacity: 0.25;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .header-right {
+      text-align: right;
+      margin-bottom: 20px;
+      font-size: 15px;
+      color: #3d2630;
+    }
+
+    .main-title {
+      text-align: center;
+      font-size: 26px;
+      font-weight: bold;
+      margin: 10px 0 4px 0;
+      color: #1f1015;
+    }
+
+    .sub-title {
+      text-align: center;
+      font-size: 18px;
+      margin-bottom: 25px;
+      color: #3d2630;
+      font-weight: normal;
+    }
+
+    .body-text {
+      text-align: justify;
+      margin-bottom: 16px;
+      text-indent: 2em;
+    }
+
+    .highlight {
+      background: #f5e7ec;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: bold;
+      color: #1f1015;
+      margin-bottom: 4px;
+      font-size: 15px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 10px 14px;
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 15px;
+      border: 1px solid #dbb6c4;
+      border-radius: 6px;
+      background: #fff9fb;
+      color: #2c1a20;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #a87a8a;
+      box-shadow: 0 0 0 3px rgba(168, 122, 138, 0.15);
+    }
+
+    .form-group input:disabled {
+      background: #f0e6ea;
+      color: #5a4650;
+      cursor: not-allowed;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 60px;
+    }
+
+    .form-row {
+      display: flex;
+      gap: 20px;
+    }
+
+    .form-row .form-group {
+      flex: 1;
+    }
+
+    .btn-submit {
+      display: inline-block;
+      background: #a87a8a;
+      color: #ffffff;
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 18px;
+      font-weight: bold;
+      padding: 14px 50px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.1s;
+      letter-spacing: 0.5px;
+      margin-top: 6px;
+    }
+
+    .btn-submit:hover {
+      background: #8a6474;
+    }
+
+    .btn-submit:active {
+      transform: scale(0.97);
+    }
+
+    .btn-container {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .confirmation-message {
+      display: none;
+      background: #d4e8d4;
+      color: #1f4a1f;
+      padding: 20px 24px;
+      border-radius: 8px;
+      border: 1px solid #a8c9a8;
+      text-align: center;
+      font-weight: bold;
+      font-size: 17px;
+      margin-top: 24px;
+    }
+
+    .confirmation-message.show {
+      display: block;
+    }
+
+    .footer-note {
+      margin-top: 35px;
+      font-size: 13px;
+      color: #7a5f68;
+      border-top: 1px dashed #dbb6c4;
+      padding-top: 18px;
+      text-align: center;
+    }
+
+    strong {
+      font-weight: 700;
+      color: #1f1015;
+    }
+
+    @media (max-width: 650px) {
+      .checkin-card {
+        padding: 30px 25px;
+      }
+      .form-row {
+        flex-direction: column;
+        gap: 0;
+      }
+      .main-title {
+        font-size: 22px;
+      }
+      .sub-title {
+        font-size: 16px;
+      }
+      .btn-submit {
+        width: 100%;
+        padding: 14px;
+      }
+      .body-text {
+        text-indent: 1.5em;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .checkin-card {
+        padding: 20px 16px;
+      }
+      .main-title {
+        font-size: 19px;
+      }
+      .sub-title {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="checkin-card">
+    <div class="watermark"></div>
+    <div class="content">
+      <div class="header-right">Betim, 20 de julho de 2026.</div>
+      <h1 class="main-title">Confirme sua Presença</h1>
+      <h2 class="sub-title">14º Prêmio de Direitos Humanos LGBTQIA+ de Betim</h2>
+
+      <p class="body-text">
+        Prezada Sra. <span class="highlight">Carmen Lúcia de Almeida</span>,
+      </p>
+      <p class="body-text">
+        Para garantirmos a melhor experiência durante a cerimônia, solicitamos que confirme seus dados e indique quantas pessoas a acompanharão no evento. Sua confirmação é essencial para a organização do cerimonial, emissão dos certificados, preparação dos troféus e reserva dos lugares.
+      </p>
+
+      <form id="formCheckin" onsubmit="return handleSubmit(event)">
+
+        <div class="form-group">
+          <label for="nome">Nome completo</label>
+          <input type="text" id="nome" name="nome" value="Carmen Lúcia de Almeida" disabled />
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" value="carmen@email.com" disabled />
+          </div>
+          <div class="form-group">
+            <label for="telefone">Telefone</label>
+            <input type="tel" id="telefone" name="telefone" value="(31) 99999-9999" disabled />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="acompanhantes">Quantos acompanhantes?</label>
+          <select id="acompanhantes" name="acompanhantes">
+            <option value="0">0 (comparecerei sozinha)</option>
+            <option value="1">1 acompanhante</option>
+            <option value="2" selected>2 acompanhantes</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="nomesAcompanhantes">Nomes dos acompanhantes</label>
+          <textarea
+            id="nomesAcompanhantes"
+            name="nomesAcompanhantes"
+            placeholder="Informe os nomes dos acompanhantes, um por linha."
+            rows="3"
+          ></textarea>
+        </div>
+
+        <div class="btn-container">
+          <button type="submit" class="btn-submit">Confirmar Presença</button>
+        </div>
+
+      </form>
+
+      <div id="confirmationMessage" class="confirmation-message">
+        ✅ Presença confirmada com sucesso!<br />
+        <span style="font-weight: normal; font-size: 15px; color: #2a5a2a;">
+          Em breve você receberá um e-mail com os detalhes finais do evento.
+        </span>
+      </div>
+
+      <div class="footer-note">
+        <strong>Superintendência de Igualdade – Prefeitura de Betim</strong><br />
+        Sua confirmação é fundamental para o sucesso da cerimônia.
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- FIREBASE INTEGRAÇÃO (MÓDULO ES6)            -->
+  <!-- ============================================ -->
+  <script type="importmap">
+    {
+      "imports": {
+        "firebase/app": "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js",
+        "firebase/database": "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js",
+        "firebase/analytics": "https://www.gstatic.com/firebasejs/10.12.0/firebase-analytics.js"
+      }
+    }
+  </script>
+
+  <script type="module">
+    // ----- IMPORTAÇÕES FIREBASE (modular) -----
+    import { initializeApp } from "firebase/app";
+    import { getAnalytics } from "firebase/analytics";
+    import { getDatabase, ref, push } from "firebase/database";
+
+    // ----- SUA CONFIGURAÇÃO (fornecida por você) -----
+    const firebaseConfig = {
+      apiKey: "AIzaSyAVz2GwPeQPzBi2nFA1IUsm56A1tBTd0DA",
+      authDomain: "paradabetim-3c3e8.firebaseapp.com",
+      projectId: "paradabetim-3c3e8",
+      storageBucket: "paradabetim-3c3e8.firebasestorage.app",
+      messagingSenderId: "567345555341",
+      appId: "1:567345555341:web:bdd614a2d47403c2ba7fc4",
+      measurementId: "G-4LVGKVM5JL"
+    };
+
+    // Inicializa o Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    const database = getDatabase(app);
+
+    // ----- EXPÕE A FUNÇÃO DE ENVIO PARA O ESCOPO GLOBAL (para o onclick do form) -----
+    window.handleSubmit = function(event) {
+      event.preventDefault();
+
+      const acompanhantes = document.getElementById('acompanhantes').value;
+      const nomes = document.getElementById('nomesAcompanhantes').value.trim();
+
+      // Validação
+      if (parseInt(acompanhantes) > 0 && !nomes) {
+        alert('Por favor, informe o nome dos acompanhantes.');
+        document.getElementById('nomesAcompanhantes').focus();
+        return false;
+      }
+
+      // Monta o objeto de dados
+      const dados = {
+        nome: document.getElementById('nome').value,
+        email: document.getElementById('email').value,
+        telefone: document.getElementById('telefone').value,
+        quantidadeAcompanhantes: acompanhantes,
+        nomesAcompanhantes: nomes || 'Nenhum acompanhante',
+        dataConfirmacao: new Date().toLocaleString('pt-BR')
+      };
+
+      // Salva no Firebase Realtime Database
+      const checkinsRef = ref(database, 'checkins');
+      push(checkinsRef, dados)
+        .then(() => {
+          console.log('✅ Dados salvos com sucesso!');
+          // Exibe mensagem de sucesso
+          document.getElementById('formCheckin').style.display = 'none';
+          document.getElementById('confirmationMessage').classList.add('show');
+          document.getElementById('confirmationMessage').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        })
+        .catch((error) => {
+          console.error('❌ Erro ao salvar:', error);
+          alert('Ocorreu um erro ao confirmar sua presença. Por favor, tente novamente.');
+        });
+
+      return false;
+    };
+  </script>
+
+</body>
+</html>
